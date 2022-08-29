@@ -28,4 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Important commands
 
-`npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch` - Running Tailwind CLI build process
+`npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch` - Running Tailwind CLI build process<br/>
+`ng serve --host 192.168.1.10` - Serve for other devices
