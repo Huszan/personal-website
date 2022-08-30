@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { InformationalBasicComponent } from './components/informational/informational-basic/informational-basic.component';
+import { InformationalSkillsComponent } from './components/informational/informational-skills/informational-skills.component';
+import { SkillComponent } from './components/informational/informational-skills/skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { InformationalBasicComponent } from './components/informational/informat
     NavbarComponent,
     HomeComponent,
     ContactComponent,
-    InformationalBasicComponent
+    InformationalBasicComponent,
+    InformationalSkillsComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
