@@ -10,6 +10,7 @@ import { InformationalBasicComponent } from './components/informational/informat
 import { InformationalSkillsComponent } from './components/informational/informational-skills/informational-skills.component';
 import { SkillComponent } from './components/informational/informational-skills/skill/skill.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
