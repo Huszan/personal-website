@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Convert} from "../../../utils/conversion";
+import {TimeConvert} from "../../../utils/timeConversion";
 import {ISkill} from "../../interfaces/ISkill";
 
 @Injectable({
@@ -13,7 +13,7 @@ export class PersonalInfoService {
   readonly surname = 'Jacenty';
   readonly fullName = `${this.forename} ${this.surname}`;
   readonly title = 'Front-End Developer';
-  readonly age = Convert.msToYr(Date.now() - this.birthDate);
+  readonly age = TimeConvert.msToYear(Date.now() - this.birthDate);
 
   readonly languageSkills: ISkill[] = [
     {
