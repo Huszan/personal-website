@@ -1,0 +1,17 @@
+
+<div class="casing shadow-xl">
+  <ng-container *ngFor="let digit of digits">
+    <div class="digit-box" [ngStyle]="{'transform':
+      'rotate(' + digit*tick12 + 'deg)'}">
+      <div class="digit" [ngStyle]="{'transform':
+      'rotate(' + -digit*tick12 + 'deg)'}">{{ digit }}</div>
+    </div>
+  </ng-container>
+  <div class="hand hand-hour" [ngStyle]="{'transform':
+    'rotate(' + hourRotation + 'deg)'}"></div>
+  <div class="hand hand-minute" [ngStyle]="{'transform':
+    'rotate(' + minuteRotation + 'deg)'}"></div>
+  <div class="hand hand-second" [ngStyle]="{'transform':
+    'rotate(' + secondRotation + 'deg)'}"></div>
+  <div class="center"></div>
+</div>

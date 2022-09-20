@@ -11,6 +11,7 @@ import { InformationalSkillsComponent } from './components/informational/informa
 import { SkillComponent } from './components/informational/informational-skills/skill/skill.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ClockComponent } from './components/addons/clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     InformationalBasicComponent,
     InformationalSkillsComponent,
     SkillComponent,
-    FooterComponent
+    FooterComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,
