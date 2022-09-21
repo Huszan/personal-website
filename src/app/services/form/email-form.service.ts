@@ -8,6 +8,7 @@ export class EmailFormService {
 
   form: IEmailForm = {
     email: '',
+    name: '',
     message: '',
   };
 
@@ -15,6 +16,7 @@ export class EmailFormService {
 
   clear() {
     this.form.email = '';
+    this.form.name = '';
     this.form.message = '';
   }
 

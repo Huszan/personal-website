@@ -12,6 +12,7 @@ import { SkillComponent } from './components/informational/informational-skills/
 import { FooterComponent } from './components/footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClockComponent } from './components/addons/clock/clock.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ClockComponent } from './components/addons/clock/clock.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

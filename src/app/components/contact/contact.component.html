@@ -12,6 +12,13 @@
       <a *ngIf="email.invalid && (email.touched || email.dirty)"
          class="text-red-400 font-thin italic">Field invalid</a>
     </div>
+    <div class="flex flex-col">
+      <input id="name" required placeholder="Insert your name.."
+             [(ngModel)]="emailForm.form.name" name="name" #name="ngModel"
+             class="form-control border rounded-md p-1 mb-2 overflow-ellipsis">
+      <a *ngIf="name.invalid && (name.touched || name.dirty)"
+         class="text-red-400 font-thin italic">Field invalid</a>
+    </div>
 
     <div class="flex flex-col">
     <textarea id="message" placeholder="Write your message here.."
