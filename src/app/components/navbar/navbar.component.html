@@ -1,0 +1,18 @@
+
+<div class="sticky top-0 w-full flex flex-wrap md:flex-nowrap justify-center p-1 bg-amber-400 shadow-md">
+
+  <div class="basis-3/12 justify-start flex space-x-6 text-white text-xl mx-3 font-bold">
+    <ng-container *ngFor="let route of availableRoutes">
+      <a class="transition hover:text-yellow-200 hover:scale-125 cursor-pointer" href="{{route.path}}">{{route.title}}</a>
+    </ng-container>
+  </div>
+
+  <div class="basis-3/12 justify-end flex mx-3 space-x-6">
+    <ng-container *ngFor="let link of externalLinksService.getLinks()">
+      <a class="transition w-[28px] h-[28px] hover:scale-125 cursor-pointer" href="{{link.url}}">
+        <img src="{{link.icon}}">
+      </a>
+    </ng-container>
+  </div>
+
+</div>

@@ -1,0 +1,69 @@
+
+:host {
+  display: block;
+}
+
+.casing {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: lightgoldenrodyellow;
+  border-width: 0.5rem;
+  border-color: rgb(251,191,36);
+  border-radius: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 47%;
+  left: 47%;
+  height: 6%;
+  width: 6%;
+  border-radius: 100%;
+  background-color: white;
+  border: 0.1rem solid;
+}
+
+.digit-box {
+  position: absolute;
+  translate: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+  width: 100%;
+}
+.digit {
+  font-size: 100%;
+  color: black;
+  opacity: 50%;
+}
+
+.hand {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.hand::after {
+  position: absolute;
+  content: '';
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+.hand-hour::after {
+  height: 30%;
+  width: 3%;
+  background-color: black;
+}
+.hand-minute::after {
+  height: 35%;
+  width: 2.5%;
+  background-color: darkgray;
+}
+.hand-second::after {
+  height: 40%;
+  width: 2%;
+  background-color: red;
+}
