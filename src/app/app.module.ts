@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
+import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/darkmode-toggle.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
     InformationalSkillsComponent,
     SkillComponent,
     FooterComponent,
-    ClockComponent
+    ClockComponent,
+    DarkmodeToggleComponent
   ],
   imports: [
     BrowserModule,
