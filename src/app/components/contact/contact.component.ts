@@ -25,8 +25,9 @@ export class ContactComponent implements OnInit {
     this.isLoading = true;
     this.http.post(this.postURL, this.emailForm.form).subscribe(
       res => {
-      alert("Email sent successfully!");
+        alert("Email sent successfully!");
         this.isLoading = false;
+        document.forms.namedItem("form")!.reset();
     },
       err => {
         alert(err);
