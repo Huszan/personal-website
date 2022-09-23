@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/darkmode-toggle.component';
+import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/dar
     SkillComponent,
     FooterComponent,
     ClockComponent,
-    DarkmodeToggleComponent
+    DarkmodeToggleComponent,
+    LoadingCircleComponent
   ],
   imports: [
     BrowserModule,
