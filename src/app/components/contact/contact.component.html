@@ -29,7 +29,11 @@
     </div>
 
     <div *ngIf="!email.invalid || !message.invalid" class="mt-4">
-      <button class="p-2 bg-amber-300 rounded-md" type="submit">Send</button>
+      <button class="h-10 p-2 bg-amber-300 hover:bg-amber-400 rounded-md flex flex-row justify-center align-middle space-x-1
+      dark:bg-gray-800 dark:hover:bg-gray-900" type="submit">
+        <div *ngIf="this.isLoading" class="h-full"><app-loading-circle></app-loading-circle></div>
+        <a>Send</a>
+      </button>
     </div>
 
   </form>

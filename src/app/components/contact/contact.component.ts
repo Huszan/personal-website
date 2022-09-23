@@ -9,6 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ContactComponent implements OnInit {
 
+  isLoading = false;
   private readonly postURL = 'https://pure-sea-86422.herokuapp.com/post';
 
   constructor(
@@ -21,12 +22,15 @@ export class ContactComponent implements OnInit {
     this.emailForm.clear();
   }
   private sendEmail() {
+    this.isLoading = true;
     this.http.post(this.postURL, this.emailForm.form).subscribe(
       res => {
       alert("Email sent successfully!");
+        this.isLoading = false;
     },
       err => {
         alert(err);
+        this.isLoading = false;
       })
   }
   ngOnInit(): void {
