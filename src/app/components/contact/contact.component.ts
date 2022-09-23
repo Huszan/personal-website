@@ -30,7 +30,7 @@ export class ContactComponent implements OnInit {
         document.forms.namedItem("form")!.reset();
     },
       err => {
-        alert(err);
+        alert(err.message);
         this.isLoading = false;
       })
   }
