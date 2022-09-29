@@ -16,8 +16,8 @@ export class DarkmodeToggleComponent implements OnInit {
     this.changeState();
   }
   private setDarkState() {
-    let w = this.slider!.parentElement!.clientWidth - this.slider!.clientWidth;
-    this.slider!.style.transform = `translateX(28px)`;
+    let w = this.slider!.parentElement!.clientWidth - this.slider!.clientWidth + 1;
+    this.slider!.style.transform = `translateX(${w}px)`;
     document.documentElement.classList.add('dark');
     localStorage.setItem('color-theme', 'dark');
   }
