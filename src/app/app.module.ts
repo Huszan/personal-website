@@ -15,6 +15,7 @@ import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/darkmode-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
+import { MangaReadComponent } from './components/addons/manga-read/manga-read.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoadingCircleComponent } from './components/addons/loading-circle/loadi
     FooterComponent,
     ClockComponent,
     DarkmodeToggleComponent,
-    LoadingCircleComponent
+    LoadingCircleComponent,
+    MangaReadComponent,
   ],
   imports: [
     BrowserModule,
