@@ -3,7 +3,7 @@
 
   <div class="basis-3/12 justify-start flex space-x-6 text-white text-xl mx-3 font-bold">
     <ng-container *ngFor="let route of availableRoutes">
-      <a class="transition hover:text-yellow-200 hover:scale-125 cursor-pointer" href="{{route.path}}">{{route.title}}</a>
+      <a *ngIf="route.title != 'Ignore'" class="transition hover:text-yellow-200 hover:scale-125 cursor-pointer" href="{{route.path}}">{{route.title}}</a>
     </ng-container>
   </div>
 
