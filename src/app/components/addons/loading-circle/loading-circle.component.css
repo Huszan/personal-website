@@ -1,0 +1,32 @@
+
+:host {
+  display: block;
+  width: inherit;
+  height: inherit;
+  max-width: 8rem;
+  aspect-ratio: 1/1;
+}
+
+.animate-spin {
+  animation: spin 1.5s linear infinite;
+}
+.animate-grow {
+  animation: grow 1.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes grow {
+  0%, 50% {
+    scale: 1;
+  }
+  50% {
+    scale: 0.5;
+  }
+}

@@ -10,14 +10,14 @@
              [(ngModel)]="emailForm.form.email" name="email" #email="ngModel"
              class="form-control border rounded-md p-1 mb-2 overflow-ellipsis">
       <a *ngIf="email.invalid && (email.touched || email.dirty)"
-         class="text-red-400 font-thin italic">Field invalid</a>
+         class="text-red-400 font-thin italic">Field invalid/required</a>
     </div>
     <div class="flex flex-col">
       <input id="name" required placeholder="Insert your name.."
              [(ngModel)]="emailForm.form.name" name="name" #name="ngModel"
              class="form-control border rounded-md p-1 mb-2 overflow-ellipsis">
       <a *ngIf="name.invalid && (name.touched || name.dirty)"
-         class="text-red-400 font-thin italic">Field invalid</a>
+         class="text-red-400 font-thin italic">Field invalid/required</a>
     </div>
 
     <div class="flex flex-col">
@@ -25,11 +25,15 @@
               [(ngModel)]="emailForm.form.message" name="message" #message="ngModel"
               class="form-control border rounded-md p-1 overflow-ellipsis h-[14rem]"></textarea>
       <a *ngIf="message.invalid && (message.touched || message.dirty)"
-         class="text-red-400 font-thin italic">Field invalid</a>
+         class="text-red-400 font-thin italic">Field invalid/required</a>
     </div>
 
-    <div *ngIf="!email.invalid || !message.invalid" class="mt-4">
-      <button class="p-2 bg-amber-300 rounded-md" type="submit">Send</button>
+    <div *ngIf="!name.invalid && !email.invalid && !message.invalid || this.isLoading" class="mt-4">
+      <button class="h-10 p-2 bg-amber-300 hover:bg-amber-400 rounded-md flex flex-row justify-center align-middle space-x-1
+      dark:bg-gray-800 dark:hover:bg-gray-900" type="submit">
+        <div *ngIf="this.isLoading" class="h-full"><app-loading-circle></app-loading-circle></div>
+        <a>Send</a>
+      </button>
     </div>
 
   </form>
