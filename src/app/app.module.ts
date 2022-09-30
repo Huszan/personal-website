@@ -16,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/darkmode-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
 import { MangaReadComponent } from './components/addons/manga-read/manga-read.component';
+import {RecaptchaModule} from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MangaReadComponent } from './components/addons/manga-read/manga-read.co
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    RecaptchaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

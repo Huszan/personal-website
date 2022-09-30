@@ -28,7 +28,9 @@
          class="text-red-400 font-thin italic">Field invalid/required</a>
     </div>
 
-    <div *ngIf="!name.invalid && !email.invalid && !message.invalid || this.isLoading" class="mt-4">
+    <re-captcha (resolved)="resolved($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
+
+    <div *ngIf="!name.invalid && !email.invalid && !message.invalid && captcha || this.isLoading" class="mt-4">
       <button class="h-10 p-2 bg-amber-300 hover:bg-amber-400 rounded-md flex flex-row justify-center align-middle space-x-1
       dark:bg-gray-800 dark:hover:bg-gray-900" type="submit">
         <div *ngIf="this.isLoading" class="h-full"><app-loading-circle></app-loading-circle></div>
