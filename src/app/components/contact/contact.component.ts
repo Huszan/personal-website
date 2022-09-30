@@ -10,16 +10,22 @@ import {HttpClient} from "@angular/common/http";
 export class ContactComponent implements OnInit {
 
   isLoading = false;
+  captcha: string;
   private readonly postURL = 'https://pure-sea-86422.herokuapp.com/post';
 
   constructor(
     public emailForm: EmailFormService,
     private http: HttpClient,
-  ) { }
+  ) {
+    this.captcha = '';
+  }
 
   onSubmit() {
     this.sendEmail();
     this.emailForm.clear();
+  }
+  resolved(response: string) {
+    this.captcha = response;
   }
   private sendEmail() {
     this.isLoading = true;
