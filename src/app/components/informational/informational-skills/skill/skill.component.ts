@@ -19,6 +19,12 @@ export class SkillComponent implements OnInit {
       return [];
     return FakeArray.ofNumber(this.skill.level!);
   }
+  getFakeEmptyLevelArray() {
+    let amount = 6 - this.skill.level!;
+    if(amount < 0 && amount > 6)
+      return [];
+    return FakeArray.ofNumber(amount);
+  }
 
   ngOnInit(): void {
   }

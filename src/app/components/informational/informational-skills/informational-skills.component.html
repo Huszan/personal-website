@@ -1,10 +1,15 @@
 
 <a class="font-bold text-xl">Languages</a>
-<ng-container *ngFor="let skill of getLanguageSkills()">
-  <app-skill [skill]="skill"></app-skill>
-</ng-container>
+<div class="md:grid md:grid-cols-3">
+  <ng-container *ngFor="let skill of getLanguageSkills()">
+    <app-skill [skill]="skill"></app-skill>
+  </ng-container>
+</div>
 
 <a class="font-bold text-xl">Development skills</a>
-<ng-container *ngFor="let skill of getDevSkills()">
-  <app-skill [skill]="skill"></app-skill>
-</ng-container>
+<div class="md:grid md:grid-cols-2">
+  <ng-container *ngFor="let skill of getDevSkills()">
+    <app-skill [skill]="skill"></app-skill>
+  </ng-container>
+</div>
+
