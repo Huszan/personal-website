@@ -28,38 +28,36 @@ export class MangaReadComponent implements OnInit {
   async collectPages(chapter: number, page = 1) {
     let currUlr = '';
     this.backToTop();
+    localStorage.setItem('last-manga', String(this.currChapter));
     this.loading = true;
     this.currChapter = chapter;
 
-    while(true) {
+    while(this.currChapter == chapter) {
       if(chapter < 111 || chapter >= 144 && chapter <= 149)
         currUlr = this.createUrl1ed(chapter, page);
       if(chapter >= 111 && chapter < 144)
         currUlr = this.createUrl2ed(chapter, page);
-      if(await urlExist(currUlr)) {
+      if(await urlExist(currUlr) && this.currChapter == chapter) {
         this.pages.push(currUlr);
         page++;
       }
       else {
         this.loading = false;
-        localStorage.setItem('last-manga', String(this.currChapter));
         break;
       }
     }
   }
   clear() {
-    if(this.loading) return alert('Manga is currently loading. Wait.');
     this.pages = [];
     this.currChapter = null;
+    localStorage.removeItem('last-manga');
   }
   next() {
-    if(this.loading) return alert('Manga is currently loading. Wait.');
     this.pages = [];
     this.currChapter!++;
     this.collectPages(this.currChapter!).then();
   }
   previous() {
-    if(this.loading) return alert('Manga is currently loading. Wait.');
     this.pages = [];
     this.currChapter!--;
     this.collectPages(this.currChapter!).then();
@@ -74,8 +72,9 @@ export class MangaReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.chapters = FakeArray.ofNumber(150);
-    if(localStorage.getItem('last-manga')) {
-      this.collectPages(parseInt(localStorage.getItem('last-manga')!))
+    let lastManga = localStorage.getItem('last-manga');
+    if(lastManga) {
+      this.collectPages(parseInt(lastManga))
         .then(() =>
           console.log('Last session loaded.')
         );
