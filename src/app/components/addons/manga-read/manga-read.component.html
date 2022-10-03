@@ -1,24 +1,24 @@
 
-<div *ngIf="pages.length <= 0" class="flex flex-wrap text-center text-xl justify-start text-white">
+<div *ngIf="pages.length <= 0" class="flex flex-wrap text-center text-xl justify-start">
   <ng-container *ngFor="let chapter of chapters">
     <div class="bg-red-700 w-[3rem] overflow-clip overflow-ellipsis m-1 p-1.5 rounded-full cursor-pointer hover:bg-red-500 hover:scale-125" (click)="collectPages(chapter)">{{chapter}}</div>
   </ng-container>
 </div>
 
 <ng-container *ngIf="pages.length > 0">
-  <div *ngIf="loading" class="w-12"><app-loading-circle></app-loading-circle></div>
   <div class="grid grid-cols-3 m-2">
-    <div class="bg-red-700 rounded-xl text-center align-middle" (click)="previous()"><-</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle" (click)="clear()">INDEX</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle" (click)="next()">-></div>
+    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="previous()"><-</div>
+    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="clear()">INDEX</div>
+    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="next()">-></div>
   </div>
   <ng-container *ngFor="let page of pages">
     <img class="ml-auto mr-auto" src={{page}} alt="page">
   </ng-container>
+  <div *ngIf="loading" class="w-12 mx-auto"><app-loading-circle></app-loading-circle></div>
   <div class="grid grid-cols-3 m-2">
-    <div class="bg-red-700 rounded-xl text-center align-middle" (click)="previous()"><-</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle" (click)="clear()">INDEX</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle" (click)="next()">-></div>
+    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="previous()"><-</div>
+    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="clear()">INDEX</div>
+    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="next()">-></div>
   </div>
 </ng-container>
 
