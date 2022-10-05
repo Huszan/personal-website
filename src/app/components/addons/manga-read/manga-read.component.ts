@@ -25,6 +25,8 @@ export class MangaReadComponent implements OnInit {
     this.http.post(this.getPagesURL, {chapter: chapter}).subscribe(
       res => {
         console.log("Pages collected successfully!");
+        this.currChapter = chapter;
+        localStorage.setItem('last-manga', String(chapter));
         this.isLoading = false;
         this.pages = res as [];
       }, err => {
