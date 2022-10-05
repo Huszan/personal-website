@@ -14,7 +14,7 @@
   <ng-container *ngFor="let page of pages">
     <img class="ml-auto mr-auto" src={{page}} alt="page">
   </ng-container>
-  <div *ngIf="loading" class="w-12 mx-auto"><app-loading-circle></app-loading-circle></div>
+  <div *ngIf="isLoading" class="w-12 mx-auto"><app-loading-circle></app-loading-circle></div>
   <div class="grid grid-cols-3 m-2">
     <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="previous()"><-</div>
     <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="clear()">INDEX</div>
