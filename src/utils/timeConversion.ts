@@ -7,13 +7,13 @@ export class TimeConvert {
   private static readonly year = this.day * 365;
 
   static msToMinute(value: number) {
-    return Math.floor(value / this.year);
+    return Math.floor(value / this.minute);
   }
   static msToHour(value: number) {
-    return Math.floor(value / this.year);
+    return Math.floor(value / this.hour);
   }
   static msToDay(value: number) {
-    return Math.floor(value / this.year);
+    return Math.floor(value / this.day);
   }
   static msToYear(value: number) {
     return Math.floor(value / this.year);
