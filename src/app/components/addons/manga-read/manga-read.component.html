@@ -1,11 +1,16 @@
 
-<div *ngIf="pages.length <= 0" class="flex flex-wrap text-center text-xl justify-start">
+<div *ngIf="isLoading" class="flex flex-col justify-center text-center space-y-4">
+  <a>Manga is loading. Please wait...</a>
+  <app-loading-circle class="m-auto min-h-[4rem]"></app-loading-circle>
+</div>
+
+<div *ngIf="pages.length <= 0 && !isLoading" class="flex flex-wrap text-center text-xl justify-start">
   <ng-container *ngFor="let chapter of chapters">
     <div class="bg-red-700 w-[3rem] overflow-clip overflow-ellipsis m-1 p-1.5 rounded-full cursor-pointer hover:bg-red-500 hover:scale-125" (click)="collectPages(chapter)">{{chapter}}</div>
   </ng-container>
 </div>
 
-<ng-container *ngIf="pages.length > 0">
+<ng-container *ngIf="pages.length > 0 && !isLoading">
   <div class="grid grid-cols-3 m-2">
     <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="previous()"><-</div>
     <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="clear()">INDEX</div>

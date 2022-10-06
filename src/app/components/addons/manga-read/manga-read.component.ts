@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import urlExist from "url-exist";
 import {FakeArray} from "../../../../utils/fakeArray";
 import {HttpClient} from "@angular/common/http";
 
@@ -24,13 +23,20 @@ export class MangaReadComponent implements OnInit {
     this.isLoading = true;
     this.http.post(this.getPagesURL, {chapter: chapter}).subscribe(
       res => {
-        console.log("Pages collected successfully!");
-        this.currChapter = chapter;
-        localStorage.setItem('last-manga', String(chapter));
+        if(res != null) {
+          console.log("Pages collected successfully!");
+          this.currChapter = chapter;
+          localStorage.setItem('last-manga', String(chapter));
+          this.pages = res as [];
+          this.backToTop();
+        }
+        else {
+          alert('Manga could not be loaded. Please try again later.');
+        }
         this.isLoading = false;
-        this.pages = res as [];
       }, err => {
         console.log(err);
+        alert('An error occurred during loading. Please try again later.')
         this.isLoading = false;
       })
   }
