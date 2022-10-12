@@ -23,10 +23,13 @@
   }
 }
 @keyframes grow {
-  0%, 50% {
-    scale: 1;
+  0% {
+    scale: 0.5;
   }
   50% {
+    scale: 0.35;
+  }
+  100% {
     scale: 0.5;
   }
 }

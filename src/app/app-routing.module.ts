@@ -7,7 +7,7 @@ import {MangaReadComponent} from "./components/addons/manga-read/manga-read.comp
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Home' },
   { path: 'contact', component: ContactComponent, title: 'Contact'},
-  { path: 'manga-read', component: MangaReadComponent, title: 'Ignore'},
+  { path: 'manga-read', component: MangaReadComponent, title: 'Manga'},
 ];
 
 @NgModule({

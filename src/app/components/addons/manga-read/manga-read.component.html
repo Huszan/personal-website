@@ -1,30 +1,53 @@
 
-<div *ngIf="isLoading" class="flex flex-col justify-center text-center space-y-4">
-  <a>Manga is loading. Please wait...</a>
+<div *ngIf="isLoading" class="flex flex-col justify-center text-center mb-4">
   <app-loading-circle class="m-auto min-h-[4rem]"></app-loading-circle>
 </div>
 
-<div *ngIf="pages.length <= 0 && !isLoading" class="flex flex-wrap text-center text-xl justify-start">
-  <ng-container *ngFor="let chapter of chapters">
-    <div class="bg-red-700 w-[3rem] overflow-clip overflow-ellipsis m-1 p-1.5 rounded-full cursor-pointer hover:bg-red-500 hover:scale-125" (click)="collectPages(chapter)">{{chapter}}</div>
-  </ng-container>
-</div>
+<ng-container *ngIf="!currManga">
 
-<ng-container *ngIf="pages.length > 0 && !isLoading">
-  <div class="grid grid-cols-3 m-2">
-    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="previous()"><-</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="clear()">INDEX</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="next()">-></div>
+  <div class="w-full text-center p-2">
+    <a class="text-3xl border-b-2">Pick your poison</a>
   </div>
-  <ng-container *ngFor="let page of pages">
-    <img class="ml-auto mr-auto" src={{page}} alt="page">
-  </ng-container>
-  <div *ngIf="isLoading" class="w-12 mx-auto"><app-loading-circle></app-loading-circle></div>
-  <div class="grid grid-cols-3 m-2">
-    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="previous()"><-</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="clear()">INDEX</div>
-    <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer" (click)="next()">-></div>
+  <div class="flex flex-wrap justify-center">
+    <ng-container *ngFor="let manga of mangas">
+      <img src="{{manga.pic}}"
+           class="max-w-[12rem] w-auto max-h-[16rem] h-auto m-2 rounded-3xl cursor-pointer hover:scale-105"
+           (click)="pickManga(manga.id)">
+    </ng-container>
   </div>
+
 </ng-container>
 
+<ng-container *ngIf="currManga && !isLoading">
+
+  <div class="max-w-[12rem] mb-4 py-2 bg-red-700 rounded-3xl m-auto text-center text-2xl cursor-pointer hover:bg-red-500 hover:scale-105 text-white"
+  (click)="changeManga()">
+    <a>Change manga</a>
+  </div>
+
+  <div *ngIf="pages.length <= 0 && !isLoading" class="flex flex-wrap text-center text-xl justify-start">
+    <ng-container *ngFor="let chapter of fakeArray.ofNumber(currManga.chapterCount+1, currManga.startingChapter)">
+      <div class="bg-red-700 w-[3rem] overflow-clip overflow-ellipsis m-1 p-1.5 rounded-full cursor-pointer hover:bg-red-500 hover:scale-105 text-white"
+           (click)="collectPages(currManga.id, chapter)">{{chapter}}</div>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="pages.length > 0 && !isLoading">
+    <div class="grid grid-cols-3 space-x-5 m-2">
+      <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer hover:bg-red-500 hover:scale-105 text-white" (click)="previousChapter()"><-</div>
+      <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer hover:bg-red-500 hover:scale-105 text-white" (click)="clearChapter()">INDEX</div>
+      <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer hover:bg-red-500 hover:scale-105 text-white" (click)="nextChapter()">-></div>
+    </div>
+    <ng-container *ngFor="let page of pages">
+      <img class="ml-auto mr-auto" src={{page}} alt="page">
+    </ng-container>
+    <div *ngIf="isLoading" class="w-12 mx-auto"><app-loading-circle></app-loading-circle></div>
+    <div class="grid grid-cols-3 m-2">
+      <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer hover:bg-red-500 hover:scale-105 text-white" (click)="previousChapter()"><-</div>
+      <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer hover:bg-red-500 hover:scale-105 text-white" (click)="clearChapter()">INDEX</div>
+      <div class="bg-red-700 rounded-xl text-center align-middle cursor-pointer hover:bg-red-500 hover:scale-105 text-white" (click)="nextChapter()">-></div>
+    </div>
+  </ng-container>
+
+</ng-container>
 
