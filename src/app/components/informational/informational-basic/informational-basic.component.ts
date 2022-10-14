@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PersonalInfoService} from "../../../services/personal/personal-info.service";
 
 @Component({
   selector: 'app-informational-basic',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationalBasicComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private personalInfoService: PersonalInfoService,
+  ) { }
+
+  fullName = this.personalInfoService.fullName;
+  title = this.personalInfoService.title;
+  age = this.personalInfoService.age;
 
   ngOnInit(): void {
   }

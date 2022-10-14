@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {TimeConvert} from "../../../utils/timeConversion";
 import {ISkill} from "../../interfaces/ISkill";
+import {IEducation} from "../../interfaces/IEducation";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,16 @@ export class PersonalInfoService {
   readonly title = 'Front-End Developer';
   readonly age = TimeConvert.msToYear(Date.now() - this.birthDate);
 
+  readonly educations: IEducation[] = [
+    {
+      universityName: 'Collegium Witelona Uczelnia Państwowa',
+      icon: 'http://www.lpe.pwsz.legnica.edu.pl/zalaczniki/uczelnie/pwsz/godlo_collegium.jpg',
+      where: 'Legnica',
+      degree: 'Engineer\'s',
+      from: new Date(2018, 8),
+      to: new Date(2022, 5),
+    }
+  ]
   readonly languageSkills: ISkill[] = [
     {
       title: 'Polish',
@@ -23,10 +34,6 @@ export class PersonalInfoService {
     {
       title: 'English',
       level: 5
-    },
-    {
-      title: 'German',
-      level: 1
     },
   ]
   readonly devSkills: ISkill[] = [

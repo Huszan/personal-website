@@ -1,0 +1,24 @@
+
+h1 {
+  font-size: xx-large;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.arrow-left-button {
+  justify-self: end;
+  rotate: -90deg;
+  grid-column: 1;
+}
+
+.house-button {
+  justify-self: center;
+  grid-column: 2;
+}
+
+.arrow-right-button {
+  justify-self: start;
+  rotate: 90deg;
+  grid-column: 3;
+}
