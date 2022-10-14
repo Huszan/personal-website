@@ -15,8 +15,10 @@ import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/darkmode-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
-import { MangaReadComponent } from './components/addons/manga-read/manga-read.component';
+import { MangaReadComponent } from './components/manga-read/manga-read.component';
 import {RecaptchaModule} from "ng-recaptcha";
+import { ArrowComponent } from './components/addons/buttons/arrow/arrow.component';
+import { HouseComponent } from './components/addons/buttons/house/house.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import {RecaptchaModule} from "ng-recaptcha";
     DarkmodeToggleComponent,
     LoadingCircleComponent,
     MangaReadComponent,
+    ArrowComponent,
+    HouseComponent,
   ],
   imports: [
     BrowserModule,

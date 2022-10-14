@@ -1,0 +1,62 @@
+
+
+<ng-container *ngIf="!currManga">
+
+  <div class="w-full text-center p-2">
+    <a class="text-3xl border-b-2">Pick your poison</a>
+  </div>
+  <div *ngIf="isLoading" class="flex flex-col justify-center text-center mb-4">
+    <app-loading-circle class="m-auto min-h-[4rem]"></app-loading-circle>
+  </div>
+  <div class="flex flex-wrap justify-center">
+    <ng-container *ngFor="let manga of mangas">
+      <img src="{{manga.pic}}"
+           class="max-w-[12rem] w-auto max-h-[16rem] h-auto m-2 rounded-3xl cursor-pointer hover:scale-105"
+           (click)="pickManga(manga.id)" alt="front-pic">
+    </ng-container>
+  </div>
+
+</ng-container>
+
+<ng-container *ngIf="currManga">
+
+  <div *ngIf="isLoading" class="flex flex-col justify-center text-center mb-4">
+    <app-loading-circle class="m-auto min-h-[4rem]"></app-loading-circle>
+  </div>
+
+  <div *ngIf="pages.length <= 0 && !isLoading">
+
+    <div class="max-w-[12rem] mb-4 py-2 bg-amber-400 dark:bg-slate-500 rounded-3xl m-auto text-center text-2xl cursor-pointer hover:bg-red-500 dark:hover:bg-slate-400 hover:scale-105 text-white"
+         (click)="changeManga()">
+      <a>Change manga</a>
+    </div>
+
+    <h1>{{currManga!.name}}</h1>
+
+    <div class="flex flex-wrap text-center text-xl justify-center">
+      <ng-container *ngFor="let chapter of fakeArray.ofNumber(currManga.chapterCount+1, currManga.startingChapter)">
+        <div class="bg-amber-400 dark:bg-slate-500 w-[3rem] overflow-clip overflow-ellipsis m-1 p-1.5 rounded-xl cursor-pointer hover:bg-red-500 dark:hover:bg-slate-400 hover:scale-105 text-white"
+             (click)="collectPages(currManga.id, chapter)">{{chapter}}</div>
+      </ng-container>
+    </div>
+
+  </div>
+
+  <ng-container *ngIf="pages.length > 0 && !isLoading">
+    <div class="grid grid-cols-3 max-w-2xl m-auto my-2">
+      <app-arrow *ngIf="currManga!.startingChapter < currChapter!" class="arrow-left-button" (click)="previousChapter()"></app-arrow>
+      <app-house class="house-button" (click)="clearChapter()"></app-house>
+      <app-arrow *ngIf="currManga!.chapterCount > currChapter!" class="arrow-right-button" (click)="nextChapter()"></app-arrow>
+    </div>
+    <ng-container *ngFor="let page of pages">
+      <img class="ml-auto mr-auto" src={{page}} alt="page">
+    </ng-container>
+    <div class="grid grid-cols-3 max-w-2xl m-auto my-2">
+      <app-arrow *ngIf="currManga!.startingChapter < currChapter!" class="arrow-left-button" (click)="previousChapter()"></app-arrow>
+      <app-house class="house-button" (click)="clearChapter()"></app-house>
+      <app-arrow *ngIf="currManga!.chapterCount > currChapter!" class="arrow-right-button" (click)="nextChapter()"></app-arrow>
+    </div>
+  </ng-container>
+
+</ng-container>
+

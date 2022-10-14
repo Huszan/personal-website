@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FakeArray} from "../../../../utils/fakeArray";
+import {FakeArray} from "../../../utils/fakeArray";
 import {HttpClient} from "@angular/common/http";
 
 const SERVER_HTTP = 'https://pure-sea-86422.herokuapp.com/';
@@ -67,7 +67,7 @@ export class MangaReadComponent implements OnInit {
     )
   }
   async collectPages(id: number, chapter: number) {
-    console.log(this.mangas)
+    this.backToTop();
     this.isLoading = true;
     this.http.post(`${this.currHttp}${GET_PAGES}`, {id: id, chapter: chapter}).subscribe(
       res => {
@@ -78,7 +78,6 @@ export class MangaReadComponent implements OnInit {
           localStorage.setItem('last-manga', String(id));
           localStorage.setItem('last-chapter', String(chapter));
           this.pages = p;
-          this.backToTop();
         }
         else {
           alert('Manga could not be loaded. Please try again later.');
