@@ -19,6 +19,10 @@ import { MangaReadComponent } from './components/manga-read/manga-read.component
 import {RecaptchaModule} from "ng-recaptcha";
 import { ArrowComponent } from './components/addons/buttons/arrow/arrow.component';
 import { HouseComponent } from './components/addons/buttons/house/house.component';
+import { InformationalEducationComponent } from './components/informational/informational-education/informational-education.component';
+import {
+  InformationalEducationModule
+} from "./components/informational/informational-education/informational-education.module";
 
 @NgModule({
   declarations: [
@@ -36,6 +40,7 @@ import { HouseComponent } from './components/addons/buttons/house/house.componen
     MangaReadComponent,
     ArrowComponent,
     HouseComponent,
+    InformationalEducationComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ import { HouseComponent } from './components/addons/buttons/house/house.componen
     FormsModule,
     HttpClientModule,
     RecaptchaModule,
+    InformationalEducationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
