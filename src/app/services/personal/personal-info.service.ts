@@ -19,7 +19,7 @@ export class PersonalInfoService {
   readonly educations: IEducation[] = [
     {
       universityName: 'Collegium Witelona Uczelnia Państwowa',
-      icon: 'https://shorturl.at/ctyA7',
+      icon: "assets/pictures/college.png",
       where: 'Legnica',
       degree: 'Engineer\'s',
       from: new Date(2018, 8),
