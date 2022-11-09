@@ -19,7 +19,7 @@ export class PersonalInfoService {
   readonly educations: IEducation[] = [
     {
       universityName: 'Collegium Witelona Uczelnia Państwowa',
-      icon: 'http://www.lpe.pwsz.legnica.edu.pl/zalaczniki/uczelnie/pwsz/godlo_collegium.jpg',
+      icon: "assets/pictures/college.png",
       where: 'Legnica',
       degree: 'Engineer\'s',
       from: new Date(2018, 8),
