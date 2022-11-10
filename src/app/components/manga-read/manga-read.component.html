@@ -11,9 +11,16 @@
   <div class="flex flex-wrap justify-center">
     <ng-container *ngFor="let manga of mangas | keyvalue">
       <img src="{{manga.value.pic}}"
-           class="max-w-[12rem] w-auto max-h-[16rem] h-auto m-2 rounded-3xl cursor-pointer hover:scale-105"
+           class="w-[11rem] h-[16rem] m-2 rounded-3xl cursor-pointer md:opacity-80 hover:scale-105 hover:opacity-100"
            (click)="pickManga(manga.value)" alt="front-pic">
     </ng-container>
+    <div class="w-[11rem] h-[16rem] m-2 rounded-3xl cursor-pointer bg-slate-200 opacity-80 md:hover:scale-105 md:hover:opacity-100"
+         (click)="navigateToForm()">
+      <div class="w-[6rem] h-[6rem] m-auto mt-[5rem]">
+        <div class="h-[6rem] w-[1.5rem] ml-[2.25rem] bg-white rounded-full absolute"></div>
+        <div class="h-[1.5rem] w-[6rem] mt-[2.25rem] bg-white rounded-full absolute"></div>
+      </div>
+    </div>
   </div>
 
 </ng-container>
@@ -49,7 +56,7 @@
       <app-arrow *ngIf="currManga!.chapterCount > currChapter!" class="arrow-right-button" (click)="nextChapter()"></app-arrow>
     </div>
     <ng-container *ngFor="let page of pages">
-      <img class="ml-auto mr-auto" src={{page}} alt="page">
+      <img class="ml-auto mr-auto" [src]="sanitizeUrl(page)" alt="page">
     </ng-container>
     <div class="grid grid-cols-3 max-w-2xl m-auto my-2">
       <app-arrow *ngIf="currManga!.startingChapter < currChapter!" class="arrow-left-button" (click)="previousChapter()"></app-arrow>

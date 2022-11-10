@@ -23,6 +23,7 @@ import { InformationalEducationComponent } from './components/informational/info
 import {
   InformationalEducationModule
 } from "./components/informational/informational-education/informational-education.module";
+import { MangaCreateComponent } from './components/manga-read/manga-create/manga-create.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {
     ArrowComponent,
     HouseComponent,
     InformationalEducationComponent,
+    MangaCreateComponent,
   ],
   imports: [
     BrowserModule,
