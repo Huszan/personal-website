@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FakeArray} from "../../../utils/fakeArray";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {DomSanitizer} from "@angular/platform-browser";
 
 const SERVER_HTTP = {
   Development: 'http://localhost:3000/',
@@ -32,12 +34,17 @@ export class MangaReadComponent implements OnInit {
   currManga: MangaForm | undefined;
   chapters: number[] = [];
   currChapter: number | undefined;
-  pages: String[] = [];
+  pages: string[] = [];
   isLoading = false;
 
   constructor(
     private http: HttpClient,
+    private router: Router,
+    private sanitizer: DomSanitizer,
   ) {}
+  sanitizeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
   clearSession() {
     localStorage.setItem('last-manga', '');
     localStorage.setItem('last-chapter', '');
@@ -45,7 +52,7 @@ export class MangaReadComponent implements OnInit {
   loadLastSession() {
     let lastManga = localStorage.getItem('last-manga');
     let lastChapter = localStorage.getItem('last-chapter');
-    if(lastManga && lastChapter) {
+    if(lastManga && lastChapter && parseInt(lastManga) == this.currManga?.id!) {
       let loadedManga = this.mangas.get(parseInt(lastManga));
       if(loadedManga) {
         this.currManga = this.mangas.get(parseInt(lastManga));
@@ -65,10 +72,10 @@ export class MangaReadComponent implements OnInit {
     this.loadLastSession();
   }
 
-  async getMangaList() {
+  getMangaList() {
     this.isLoading = true;
-    await this.http.get(`${this.currHttp}${GET_MANGA_LIST}`).subscribe(
-      res => {
+    this.http.get(`${this.currHttp}${GET_MANGA_LIST}`).subscribe(
+      async res => {
         let p = res as MangaForm[];
         p.forEach(el => {
           this.mangas.set(el.id, el);
@@ -84,7 +91,7 @@ export class MangaReadComponent implements OnInit {
     this.http.post(`${this.currHttp}${GET_PAGES}`, {idHtmlLocate: manga.idHtmlLocate, chapter: chapter}).subscribe(
       res => {
         let p = res as [];
-        if(p != undefined && p.length > 0) {
+        if(p.length > 0) {
           console.log(`${p.length} pages collected successfully!`);
           this.currChapter = chapter;
           localStorage.setItem('last-manga', String(manga.id));
@@ -132,9 +139,12 @@ export class MangaReadComponent implements OnInit {
     });
   }
 
+  navigateToForm() {
+    this.router.navigate(['manga-create']);
+  }
+
   ngOnInit(): void {
-    this.getMangaList().then(
-    );
+    this.getMangaList();
   }
 
 }

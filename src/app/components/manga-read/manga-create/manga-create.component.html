@@ -1,0 +1,88 @@
+<div class="flex flex-col max-w-2xl space-y-4 m-auto border rounded shadow-md md:p-4 p-1">
+
+  <a class="text-center text-4xl overflow-ellipsis">Create/scrap manga</a>
+
+  <form (ngSubmit)="onSubmitCreate()" name="form">
+
+    <div class="grid grid-cols-4 gap-2">
+
+      <label for="name">Title</label>
+      <input id="name" name="name" required placeholder="Insert manga title.." type="text"
+             [(ngModel)]="form.name" #name="ngModel"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600 col-span-3">
+
+      <label for="pic">Cover image url</label>
+      <input id="pic" name="pic" required placeholder="Insert manga cover url.."
+             [(ngModel)]="form.pic" #pic="ngModel" type="text"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600 col-span-3">
+
+      <label for="startingChapter">Starting chapter</label>
+      <input id="startingChapter" name="startingChapter" required type="number"
+             [(ngModel)]="form.startingChapter" #startingChapter="ngModel"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600">
+
+      <label for="chapterCount">Chapter amount</label>
+      <input id="chapterCount" name="chapterCount" required type="number"
+             [(ngModel)]="form.chapterCount" #chapterCount="ngModel"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600">
+
+      <label for="positions" class="col-span-4">Possible positions in html</label>
+      <textarea id="positions" name="positions" required type="text"
+                placeholder='eg. [".separator > a", ".separator", ".wp-block-image > figure"]'
+             [(ngModel)]="form.htmlLocate.positions" #positions="ngModel"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600 col-span-4"></textarea>
+
+      <label for="lookedType">Field type</label>
+      <input id="lookedType" name="lookedType" required type="text"
+             placeholder='eg. img'
+             [(ngModel)]="form.htmlLocate.lookedType" #lookedType="ngModel"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600">
+
+      <label for="lookedAttr">Attribute</label>
+      <input id="lookedAttr" name="lookedAttr" required type="text"
+             placeholder="eg. src"
+             [(ngModel)]="form.htmlLocate.lookedAttr" #lookedAttr="ngModel"
+             class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600">
+
+      <label for="urls" class="col-span-4">Possible urls</label>
+      <textarea id="urls" name="urls" required type="text"
+                placeholder='eg. ["http://localhost/manga-!!!"]
+Place "!!!" in place of chapter number'
+                [(ngModel)]="form.htmlLocate.urls" #urls="ngModel"
+                class="form-control rounded-md p-1 overflow-ellipsis
+             border-[0.15rem] invalid:border-red-600 col-span-4"></textarea>
+
+      <div class="col-span-4">
+        <re-captcha (resolved)="resolved($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
+      </div>
+
+      <ng-container *ngIf="!name.invalid && !pic.invalid && !startingChapter.invalid && !chapterCount.invalid
+      && !positions.invalid && !lookedType.invalid && !lookedAttr.invalid && !urls.invalid && captcha">
+        <button class="h-10 p-2 bg-amber-300 hover:bg-amber-400 rounded-md flex flex-row justify-center align-middle space-x-1
+      dark:bg-gray-800 dark:hover:bg-gray-900" (click)="onSubmitTest()">
+          <a>Test</a>
+          <div *ngIf="this.mangaCreateService.loading.test === true" class="h-full"><app-loading-circle></app-loading-circle></div>
+        </button>
+      </ng-container>
+
+      <ng-container *ngIf="mangaCreateService.isApproved() && captcha">
+        <button class="h-10 p-2 bg-amber-300 hover:bg-amber-400 rounded-md flex flex-row justify-center align-middle space-x-1
+      dark:bg-gray-800 dark:hover:bg-gray-900" type="submit">
+          <a>Submit</a>
+          <div *ngIf="this.mangaCreateService.loading.submit === true" class="h-full"><app-loading-circle></app-loading-circle></div>
+        </button>
+      </ng-container>
+
+    </div>
+
+
+  </form>
+
+</div>
