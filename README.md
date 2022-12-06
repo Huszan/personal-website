@@ -30,3 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 `npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch` - Running Tailwind CLI build process<br/>
 `ng serve --host 192.168.1.10` - Serve for other devices
+`ng deploy --base-href=/personal-website/` - Deploy to pages

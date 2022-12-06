@@ -6,7 +6,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 
 const SERVER_HTTP = {
   Development: 'http://localhost:3000/',
-  Main: 'https://pure-sea-86422.herokuapp.com/',
+  Main: 'https://personal-website-backend-production.up.railway.app/',
 }
 const GET_MANGA_LIST = 'getMangaList';
 const GET_PAGES = 'getMangaPages';

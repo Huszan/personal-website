@@ -11,7 +11,7 @@ export class ContactComponent implements OnInit {
 
   isLoading = false;
   captcha: string;
-  private readonly postURL = 'https://pure-sea-86422.herokuapp.com/post';
+  private readonly postURL = 'https://personal-website-backend-production.up.railway.app/post';
 
   constructor(
     public emailForm: EmailFormService,
