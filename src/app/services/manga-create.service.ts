@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 
 const SERVER_HTTP = {
   Development: 'http://localhost:3000/',
-  Main: 'https://pure-sea-86422.herokuapp.com/',
+  Main: 'https://personal-website-backend-production.up.railway.app/',
 }
 const PATH = {
   test: 'testMangaForm',
@@ -29,6 +29,9 @@ export class MangaCreateService {
   isApproved = () => {
     return this.lastApproved != undefined;
   }
+  isLoading() {
+    return this.loading.submit || this.loading.test;
+  }
 
   constructor(
     private http: HttpClient,
@@ -42,14 +45,17 @@ export class MangaCreateService {
     return formClone;
   }
   testManga(form: IMangaForm) {
+    if(this.isLoading()) throw new Error("Service is currently working. Please wait.");
     this.loading.test = true;
     let formClone = this.parseForm(form);
     this.http.post(this.testURL, formClone)
       .subscribe(res => {
-        this.lastApproved = formClone;
         this.loading.test = false;
-        if(res === true) alert(`Successfully received pages for all chapters. ` +
-          `You can now click Submit button to upload it!`);
+        if(res === true) {
+          alert(`Successfully received pages for all chapters. ` +
+            `You can now click Submit button to upload it!`);
+          this.lastApproved = formClone;
+        }
         else alert(`Unable to get all of manga chapters. Failed on -> ${res}`);
       },
       err => {
@@ -58,8 +64,9 @@ export class MangaCreateService {
       })
   }
   sendApprovedManga() {
+    if(this.isLoading()) throw new Error("Service is currently working. Please wait.");
+    if(!this.lastApproved) throw new Error("There is no approved manga.");
     this.loading.submit = true;
-    if(!this.lastApproved) return;
     this.http.post(this.sendURL, this.lastApproved)
       .subscribe(res => {
         if(res) {

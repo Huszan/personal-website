@@ -22,6 +22,7 @@ export class PersonalInfoService {
       icon: "assets/pictures/college.png",
       where: 'Legnica',
       degree: 'Engineer\'s',
+      in: 'web/software programming',
       from: new Date(2018, 8),
       to: new Date(2022, 5),
     }
@@ -42,22 +43,18 @@ export class PersonalInfoService {
       desc: 'Ability to write clean code using programming languages like Java, JavaScript, TypeScript, C# and Kotlin'
     },
     {
-      title: 'Angular',
-      desc: 'Knowledge and skills in using Angular framework'
+      title: 'Frameworks',
+      desc: 'Knowledge and skills in using Angular and React frameworks'
     },
     {
       title: 'Design patterns',
       desc: 'Understanding and ability to implement commonly used design patterns'
     },
     {
-      title: 'Programming environments',
-      desc: 'Familiar with vastly used environments like IntelliJ IDEA, Visual Studio, Visual Studio Code, WebStorm'
-    },
-    {
       title: 'Unit testing'
     },
     {
-      title: 'SQL language'
+      title: 'SQL'
     },
     {
       title: 'Git version control system'

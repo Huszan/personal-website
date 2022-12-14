@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FakeArray} from "../../../utils/fakeArray";
+import {FakeArray} from "../../../../utils/fakeArray";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ISkill} from "../../../../interfaces/ISkill";
-import {FakeArray} from "../../../../../utils/fakeArray";
+import {ISkill} from "../../../../../interfaces/ISkill";
+import {FakeArray} from "../../../../../../utils/fakeArray";
 
 @Component({
   selector: 'app-skill',

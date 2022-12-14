@@ -31,11 +31,9 @@ export class MangaCreateComponent implements OnInit {
     return this.mangaCreateService.loading.submit || this.mangaCreateService.loading.test;
   }
   onSubmitTest() {
-    if(this.isLoading()) return;
     this.mangaCreateService.testManga(this.form);
   }
   onSubmitCreate() {
-    if(this.isLoading()) return;
     this.mangaCreateService.sendApprovedManga();
   }
   resolved(response: string) {

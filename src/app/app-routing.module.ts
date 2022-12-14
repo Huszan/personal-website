@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./components/home/home.component";
 import {ContactComponent} from "./components/contact/contact.component";
-import {MangaReadComponent} from "./components/manga-read/manga-read.component";
-import {MangaCreateComponent} from "./components/manga-read/manga-create/manga-create.component";
+import {MangaReadComponent} from "./components/manga/manga-read/manga-read.component";
+import {MangaCreateComponent} from "./components/manga/manga-create/manga-create.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Home' },

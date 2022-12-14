@@ -4,6 +4,7 @@ export interface IEducation {
   icon?: string,
   where?: string,
   degree?: string,
+  in?: string,
   from?: Date | undefined,
   to?: Date | undefined
 }

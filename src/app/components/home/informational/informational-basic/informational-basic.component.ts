@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PersonalInfoService} from "../../../services/personal/personal-info.service";
+import {PersonalInfoService} from "../../../../services/personal/personal-info.service";
 
 @Component({
   selector: 'app-informational-basic',
@@ -14,7 +14,7 @@ export class InformationalBasicComponent implements OnInit {
 
   fullName = this.personalInfoService.fullName;
   title = this.personalInfoService.title;
-  age = this.personalInfoService.age;
+  education = this.personalInfoService.educations[0];
 
   ngOnInit(): void {
   }
