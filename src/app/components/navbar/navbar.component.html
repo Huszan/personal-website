@@ -1,19 +1,32 @@
 
-<div class="sticky z-10 top-0 w-full flex flex-wrap md:flex-nowrap justify-center p-1 bg-amber-400 dark:bg-gray-800 shadow-md">
+<div class="sticky-navbar">
 
-  <div class="basis-3/12 justify-start flex space-x-6 text-white text-xl mx-3 font-bold">
+  <div class="flex text-white text-xl mx-3 font-bold">
     <ng-container *ngFor="let route of availableRoutes">
-      <a *ngIf="route.title != 'Ignore'" class="transition hover:text-yellow-200 hover:scale-125 cursor-pointer" href="{{route.path}}">{{route.title}}</a>
+      <div *ngIf="route.title">
+        <button
+          [ngClass]="{'btn-active' : isRoutePathActive(route.path!)}"
+          class="btn-route peer"
+          routerLink="{{route.path}}">
+          {{route.title}}
+        </button>
+        <div class="dropdown-peer">
+          <a
+            *ngFor="let child of route.children"
+            class="dropdown-a"
+            routerLink="/{{route.path}}/{{child.path}}">{{child.title}}</a>
+        </div>
+      </div>
     </ng-container>
   </div>
 
-  <div class="basis-3/12 justify-end flex mx-3 space-x-6">
-    <ng-container *ngFor="let link of externalLinksService.getLinks()">
-      <a class="transition w-[28px] h-[28px] hover:scale-125 cursor-pointer" href="{{link.url}}">
-        <img src="{{link.icon}}">
+  <div class="flex items-stretch">
+    <ng-container *ngFor="let link of externalLinks">
+      <a class="external-links" href="{{link.url}}">
+        <img class="external-link-img" src="{{link.icon}}" alt="{{link.title}}">
       </a>
     </ng-container>
-    <app-darkmode-toggle></app-darkmode-toggle>
+    <app-darkmode-toggle class="mx-2 py-0.5 relative z-10"></app-darkmode-toggle>
   </div>
 
 </div>

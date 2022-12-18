@@ -9,17 +9,17 @@ export class ExternalLinksService {
   private git: IExternalLink = {
     title: 'GitHub',
     url: 'https://github.com/Huszan',
-    icon: 'assets/logos/GitHub-Mark-Light-32px.png'
+    icon: 'assets/logos/brand-github.svg'
   };
   private fb: IExternalLink = {
     title: 'Facebook',
     url: 'https://www.facebook.com/mateuszjacenty1',
-    icon: 'assets/logos/icons8-facebook-48.png'
+    icon: 'assets/logos/brand-facebook.svg'
   };
   private linked: IExternalLink = {
     title: 'LinkedIn',
     url: 'https://www.linkedin.com/in/mateusz-jacenty-895917186/',
-    icon: 'assets/logos/icons8-linkedin-48.png'
+    icon: 'assets/logos/brand-linkedin.svg'
   };
 
   public getLinks() {

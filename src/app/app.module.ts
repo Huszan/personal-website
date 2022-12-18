@@ -24,7 +24,7 @@ import {
   InformationalEducationModule
 } from "./components/home/informational/informational-education/informational-education.module";
 import { MangaCreateComponent } from './components/manga/manga-create/manga-create.component';
-
+import { MangaComponent } from './components/manga/manga.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +43,7 @@ import { MangaCreateComponent } from './components/manga/manga-create/manga-crea
     HouseComponent,
     InformationalEducationComponent,
     MangaCreateComponent,
+    MangaComponent,
   ],
   imports: [
     BrowserModule,

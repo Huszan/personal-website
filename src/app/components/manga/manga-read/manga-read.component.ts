@@ -139,10 +139,6 @@ export class MangaReadComponent implements OnInit {
     });
   }
 
-  navigateToForm() {
-    this.router.navigate(['manga-create']);
-  }
-
   ngOnInit(): void {
     this.getMangaList();
   }
