@@ -2,18 +2,27 @@
 .sticky-navbar {
   @apply sticky z-50 top-0 w-full flex justify-around flex-wrap bg-amber-400 dark:bg-gray-800 shadow-md
 }
-.btn-route {
-  @apply transition px-2 py-0.5 hover:bg-amber-300 dark:hover:bg-slate-700 h-full;
+.nav-row {
+  @apply flex flex-grow justify-center mx-3;
 }
-.external-links {
-  @apply transition hover:scale-[115%] mx-2 my-0.5 cursor-pointer flex items-center;
-}
-.external-link-img {
-  @apply h-[28px]
+
+.route-link {
+  @apply block transition px-2 py-0.5 h-full
+  hover:bg-amber-300 dark:hover:bg-slate-700
+  text-white text-xl font-bold;
 }
 .dropdown-peer {
   @apply hidden peer-hover:flex hover:flex w-52 flex-col drop-shadow-lg absolute z-20;
 }
-.dropdown-a {
-  @apply bg-amber-300 hover:bg-amber-200 dark:bg-slate-700 dark:hover:bg-slate-600 z-50 p-2 cursor-pointer text-sm;
+.dropdown-link {
+  @apply block z-50 p-2
+  bg-amber-300 hover:bg-amber-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-sm text-white;
 }
+
+.external-links {
+  @apply transition hover:scale-[115%] aspect-square mx-2 my-0.5 cursor-pointer flex items-center;
+}
+.external-link-img {
+  @apply h-[28px];
+}
+

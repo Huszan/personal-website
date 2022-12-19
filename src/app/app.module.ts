@@ -13,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
-import { DarkmodeToggleComponent } from './components/addons/darkmode-toggle/darkmode-toggle.component';
+import { ColorThemeToggleComponent } from './components/addons/color-theme-toggle/color-theme-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
 import { MangaReadComponent } from './components/manga/manga-read/manga-read.component';
 import {RecaptchaModule} from "ng-recaptcha";
@@ -36,7 +36,7 @@ import { MangaComponent } from './components/manga/manga.component';
     SkillComponent,
     FooterComponent,
     ClockComponent,
-    DarkmodeToggleComponent,
+    ColorThemeToggleComponent,
     LoadingCircleComponent,
     MangaReadComponent,
     ArrowComponent,

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DarkmodeToggleComponent } from './darkmode-toggle.component';
+import { ColorThemeToggleComponent } from './color-theme-toggle.component';
 
 describe('DarkmodeToggleComponent', () => {
-  let component: DarkmodeToggleComponent;
-  let fixture: ComponentFixture<DarkmodeToggleComponent>;
+  let component: ColorThemeToggleComponent;
+  let fixture: ComponentFixture<ColorThemeToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DarkmodeToggleComponent ]
+      declarations: [ ColorThemeToggleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DarkmodeToggleComponent);
+    fixture = TestBed.createComponent(ColorThemeToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

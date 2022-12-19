@@ -1,32 +1,33 @@
 
 <div class="sticky-navbar">
 
-  <div class="flex text-white text-xl mx-3 font-bold">
+  <div class="nav-row">
     <ng-container *ngFor="let route of availableRoutes">
       <div *ngIf="route.title">
-        <button
+        <a
           [ngClass]="{'btn-active' : isRoutePathActive(route.path!)}"
-          class="btn-route peer"
+          class="route-link peer"
           routerLink="{{route.path}}">
           {{route.title}}
-        </button>
+        </a>
         <div class="dropdown-peer">
           <a
             *ngFor="let child of route.children"
-            class="dropdown-a"
-            routerLink="/{{route.path}}/{{child.path}}">{{child.title}}</a>
+            class="dropdown-link"
+            routerLink="/{{route.path}}/{{child.path}}">{{child.title}}
+          </a>
         </div>
       </div>
     </ng-container>
   </div>
 
-  <div class="flex items-stretch">
+  <div class="nav-row">
     <ng-container *ngFor="let link of externalLinks">
       <a class="external-links" href="{{link.url}}">
         <img class="external-link-img" src="{{link.icon}}" alt="{{link.title}}">
       </a>
     </ng-container>
-    <app-darkmode-toggle class="mx-2 py-0.5 relative z-10"></app-darkmode-toggle>
+    <app-color-theme-toggle class="aspect-[2/1] p-1"></app-color-theme-toggle>
   </div>
 
 </div>
