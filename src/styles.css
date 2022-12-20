@@ -4,7 +4,34 @@
 @tailwind utilities;
 
 @layer components {
+  h1 {
+    @apply text-5xl text-center font-bold;
+  }
+  h2 {
+    @apply text-4xl text-center;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+
   .btn-active {
     @apply overline;
+  }
+  .hover-button {
+    @apply bg-amber-400 dark:bg-slate-500 rounded-xl
+    overflow-clip overflow-ellipsis p-1
+    bg-opacity-40 hover:bg-opacity-100 dark:hover:bg-slate-700;
+  }
+  .loading-wrapper {
+    @apply flex flex-col justify-center text-center mb-4;
+  }
+  .loading-circle {
+    @apply m-auto min-h-[4rem];
   }
 }

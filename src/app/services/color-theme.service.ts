@@ -43,7 +43,7 @@ export class ColorThemeService {
   }
 
   constructor() {
-    if(!this.isThemeSet) this.setupPreferredTheme();
+    if(!this.isThemeSet()) this.setupPreferredTheme();
     else this.setupSavedTheme();
   }
 }

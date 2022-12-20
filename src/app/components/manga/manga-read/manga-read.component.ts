@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FakeArray} from "../../../../utils/fakeArray";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
@@ -8,8 +8,10 @@ const SERVER_HTTP = {
   Development: 'http://localhost:3000/',
   Main: 'https://personal-website-backend-production.up.railway.app/',
 }
-const GET_MANGA_LIST = 'getMangaList';
-const GET_PAGES = 'getMangaPages';
+const ROUTE = {
+  GetMangaList: 'getMangaList',
+  GetPages: 'getMangaPages',
+}
 
 interface MangaForm {
   id: number,
@@ -23,7 +25,8 @@ interface MangaForm {
 @Component({
   selector: 'app-manga-read',
   templateUrl: './manga-read.component.html',
-  styleUrls: ['./manga-read.component.css']
+  styleUrls: ['./manga-read.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MangaReadComponent implements OnInit {
 
@@ -74,7 +77,7 @@ export class MangaReadComponent implements OnInit {
 
   getMangaList() {
     this.isLoading = true;
-    this.http.get(`${this.currHttp}${GET_MANGA_LIST}`).subscribe(
+    this.http.get(`${this.currHttp}${ROUTE.GetMangaList}`).subscribe(
       async res => {
         let p = res as MangaForm[];
         p.forEach(el => {
@@ -88,7 +91,7 @@ export class MangaReadComponent implements OnInit {
   async collectPages(manga: MangaForm, chapter: number) {
     this.backToTop();
     this.isLoading = true;
-    this.http.post(`${this.currHttp}${GET_PAGES}`, {idHtmlLocate: manga.idHtmlLocate, chapter: chapter}).subscribe(
+    this.http.post(`${this.currHttp}${ROUTE.GetPages}`, {idHtmlLocate: manga.idHtmlLocate, chapter: chapter}).subscribe(
       res => {
         let p = res as [];
         if(p.length > 0) {

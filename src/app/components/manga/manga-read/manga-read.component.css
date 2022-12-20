@@ -1,24 +1,42 @@
 
-h1 {
-  font-size: xx-large;
-  text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.page-img {
+  @apply ml-auto mr-auto;
+}
+.manga-cover-img {
+  @apply w-[11rem] h-[16rem] m-2 rounded-3xl cursor-pointer opacity-80 hover:scale-105 hover:opacity-100;
 }
 
-.arrow-left-button {
-  justify-self: end;
-  rotate: -90deg;
-  grid-column: 1;
+.chapter-list-wrapper {
+  @apply grid grid-cols-4 md:grid-cols-10
+  gap-1 w-full text-xl;
 }
 
+.plus-wrapper {
+  @apply w-[6rem] h-[6rem] m-auto mt-[5rem];
+}
+.plus-horizontal-line {
+  @apply h-[6rem] w-[1.5rem] ml-[2.25rem] bg-white rounded-full absolute;
+}
+.plus-vertical-line {
+  @apply h-[1.5rem] w-[6rem] mt-[2.25rem] bg-white rounded-full absolute;
+}
+
+.nav-button-grid {
+  @apply grid grid-cols-3 max-w-2xl m-auto p-3;
+}
+.left-arrow-button {
+  @apply justify-self-end rotate-[-90deg]
+  cursor-pointer;
+}
 .house-button {
-  justify-self: center;
-  grid-column: 2;
+  @apply justify-self-center
+  cursor-pointer;
+}
+.right-arrow-button {
+  @apply justify-self-start rotate-90
+  cursor-pointer;
 }
 
-.arrow-right-button {
-  justify-self: start;
-  rotate: 90deg;
-  grid-column: 3;
+.change-manga-button {
+  @apply mx-auto p-3 text-2xl relative
 }

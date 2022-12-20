@@ -1,22 +1,26 @@
-<div class="flex flex-col space-y-5 md:space-x-5 md:flex-row">
+<div class="info-basic-content">
 
-  <div class="flex flex-col space-y-3 text-center">
-    <div class="w-max self-center">
-      <img class="rounded-full" src="assets/pictures/myface.jpg">
-    </div>
-    <h2 class="font-bold text-4xl sd:text-4xl">{{fullName}}</h2>
+  <div class="pic-wrapper">
+    <img class="personal-pic" src="assets/pictures/myface.jpg">
+    <h2><b>{{fullName}}</b></h2>
     <h3>{{title}}</h3>
   </div>
 
-  <div class="self-center max-w-xl">
-    <h3 class="indent-8 leading-6 text-base">
+  <div class="desc-wrapper">
+    <p class="desc-paragraph">
+      <b>Hi! Let me introduce myself!</b>
+    </p>
+    <br>
+    <p class="desc-paragraph">
       I am highly motivated and quite experienced front-end developer. I am fully capable of writing well designed,
       testable, efficient code by using best software development practices, know how to integrate data from various back-end services and databases and
       create website layout/user interfaces by using standard HTML/CSS practices.
-    </h3>
-    <h3 class="indent-8 leading-6 text-base">
-      Graduated from {{education.universityName}} in <em>{{education.where}}</em> with {{education.degree}} degree in {{education.in}}.
-    </h3>
+    </p>
+    <br>
+    <p class="desc-paragraph">
+      Graduated from <em>{{education.universityName}} in {{education.where}}</em> with {{education.degree}} degree
+      in {{education.in}}.
+    </p>
   </div>
 
 </div>
