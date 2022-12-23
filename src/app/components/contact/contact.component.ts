@@ -22,7 +22,6 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     this.sendEmail();
-    this.emailForm.clear();
   }
   resolved(response: string) {
     this.captcha = response;
@@ -31,15 +30,20 @@ export class ContactComponent implements OnInit {
     this.isLoading = true;
     this.http.post(this.postURL, this.emailForm.form)
       .subscribe(res => {
-        alert("Email sent successfully!");
         this.isLoading = false;
-        document.forms.namedItem("form")!.reset();
+        this.clearForm();
+        alert("Email sent successfully!");
     },
       err => {
-        alert(err.message);
+        alert("Something went wrong during sending email. Try again later.\n\n" + err.message);
         this.isLoading = false;
       })
   }
+  clearForm() {
+    document.forms.namedItem("form")!.reset();
+    this.emailForm.clear();
+  }
+
   ngOnInit(): void {
   }
 

@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
   h1 {
     @apply text-5xl text-center font-bold;
   }
@@ -19,7 +19,9 @@
   h5 {
     @apply text-lg;
   }
+}
 
+@layer components {
   .btn-active {
     @apply overline;
   }
@@ -28,10 +30,36 @@
     overflow-clip overflow-ellipsis p-1
     bg-opacity-40 hover:bg-opacity-100 dark:hover:bg-slate-700;
   }
+  .hover-button:disabled {
+    @apply bg-gray-200 bg-opacity-100 text-gray-400 pointer-events-none;
+  }
   .loading-wrapper {
     @apply flex flex-col justify-center text-center mb-4;
   }
   .loading-circle {
     @apply m-auto min-h-[4rem];
+  }
+
+  .form-wrapper {
+    @apply flex flex-col max-w-2xl space-y-4 m-auto rounded shadow-inner md:p-4 p-1 bg-amber-50
+    dark:bg-white dark:bg-opacity-5 z-10;
+  }
+  .form-input-box {
+    @apply flex flex-col md:flex-row items-center md:space-x-2;
+  }
+  .form-label {
+    @apply font-bold text-left w-full overflow-hidden overflow-ellipsis;
+  }
+  .form-label.required::after {
+    content: '*';
+  }
+  .form-input {
+    @apply rounded-md p-1 w-full border border-b-2 border-b-green-500 invalid:border-b-red-600;
+  }
+  .form-textarea {
+    @apply border rounded-md p-1 overflow-ellipsis min-h-[6rem] border border-b-2 border-b-green-500 invalid:border-b-red-600;
+  }
+  .form-submit {
+    @apply hover-button h-10 flex flex-row justify-center items-center space-x-2;
   }
 }
