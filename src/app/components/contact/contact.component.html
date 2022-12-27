@@ -23,7 +23,7 @@
         E-mail
       </label>
       <input id="email" type="email" required placeholder="Insert your email address.."
-             [(ngModel)]="emailForm.form.email" name="email" #email="ngModel"
+             [(ngModel)]="emailForm.form.email" name="email" #email="ngModel" email
              class="form-input">
     </div>
 
@@ -46,12 +46,12 @@
     </textarea>
 
     <div class="pt-2">
-      <re-captcha class="scale-125" (resolved)="resolved($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
+      <re-captcha class="scale-125" (resolved)="resolveCaptcha($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
     </div>
 
     <button class="form-submit disabled:saturate-0" type="submit"
-            [disabled]="!email.valid || !name.valid || !message.valid || !captcha || this.isLoading">
-      <div *ngIf="this.isLoading" class="h-full"><app-loading-circle></app-loading-circle></div>
+            [disabled]="!email.valid || !name.valid || !message.valid || !captcha || this.isLoading()">
+      <div *ngIf="this.isLoading()" class="h-full"><app-loading-circle></app-loading-circle></div>
       <p>Send ></p>
     </button>
 

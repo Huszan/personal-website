@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IMangaForm} from "../../interfaces/IMangaForm";
 
 @Injectable({
@@ -9,24 +9,17 @@ export class MangaFormService {
   constructor() { }
 
   form: IMangaForm = {
-    name: '',
-    pic: '',
-    startingChapter: 0,
-    chapterCount: 1,
-    htmlLocate: {
-      positions: '',
-      lookedType: 'img',
-      lookedAttr: 'src',
-      urls: '',
-    }
-  };
-  captcha = '';
-
-  resolveCaptcha(response: string) {
-    this.captcha = response;
-  }
-  isCaptchaValid() {
-    return !!this.captcha;
-  }
+      name: '',
+      pic: '',
+      startingChapter: 0,
+      chapterCount: 1,
+      htmlLocate: {
+        positions: '',
+        lookedType: 'img',
+        lookedAttr: 'src',
+        urls: '',
+      }
+    };
+  captcha: string = '';
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MangaCreateService} from "../../../services/manga-create.service";
 import {IMangaForm} from "../../../interfaces/IMangaForm";
+import {MangaFormService} from "../../../services/form/manga-form.service";
 
 @Component({
   selector: 'app-manga-create',
@@ -9,34 +10,30 @@ import {IMangaForm} from "../../../interfaces/IMangaForm";
 })
 export class MangaCreateComponent implements OnInit {
 
-  form: IMangaForm = {
-    name: '',
-    pic: '',
-    startingChapter: 0,
-    chapterCount: 1,
-    htmlLocate: {
-      positions: '',
-      lookedType: 'img',
-      lookedAttr: 'src',
-      urls: '',
-    }
-  };
-  captcha = '';
+  form: IMangaForm;
+  captcha: string;
 
   constructor(
     public mangaCreateService: MangaCreateService,
-  ) { }
+    private mangaFormService: MangaFormService,
+  ) {
+    this.form = mangaFormService.form;
+    this.captcha = mangaFormService.captcha;
+  }
 
   isLoading() {
     return this.mangaCreateService.loading.submit || this.mangaCreateService.loading.test;
   }
+
   onSubmitTest() {
     this.mangaCreateService.testManga(this.form);
   }
+
   onSubmitCreate() {
     this.mangaCreateService.sendApprovedManga();
   }
-  resolved(response: string) {
+
+  resolveCaptcha(response: string) {
     this.captcha = response;
   }
 

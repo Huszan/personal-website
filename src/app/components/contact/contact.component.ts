@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EmailFormService} from "../../services/form/email-form.service";
-import {HttpClient} from "@angular/common/http";
+import {ContactEmailService} from "./contact-email.service";
+import {StateManagementService} from "../../services/state-management.service";
 
 @Component({
   selector: 'app-contact',
@@ -9,39 +10,42 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ContactComponent implements OnInit {
 
-  isLoading = false;
-  captcha: string;
-  private readonly postURL = 'https://personal-website-backend-production.up.railway.app/post';
+  captcha: string = '';
 
   constructor(
     public emailForm: EmailFormService,
-    private http: HttpClient,
-  ) {
-    this.captcha = '';
-  }
+    private contactEmail: ContactEmailService,
+    private state: StateManagementService,
+  ) { }
 
   onSubmit() {
     this.sendEmail();
   }
-  resolved(response: string) {
+
+  resolveCaptcha(response: string) {
     this.captcha = response;
   }
+
   private sendEmail() {
-    this.isLoading = true;
-    this.http.post(this.postURL, this.emailForm.form)
-      .subscribe(res => {
-        this.isLoading = false;
-        this.clearForm();
-        alert("Email sent successfully!");
-    },
-      err => {
-        alert("Something went wrong during sending email. Try again later.\n\n" + err.message);
-        this.isLoading = false;
+    this.state.startLoading();
+    this.contactEmail.sendEmail(this.emailForm.form)
+      .subscribe({
+        next: () => {
+          alert('Email sent successfully');
+          this.clearForm();
+        },
+        error: (err) => {alert(err.message)},
+        complete: () => {this.state.stopLoading()},
       })
   }
+
   clearForm() {
     document.forms.namedItem("form")!.reset();
     this.emailForm.clear();
+  }
+
+  isLoading() {
+    return this.state.isLoading();
   }
 
   ngOnInit(): void {

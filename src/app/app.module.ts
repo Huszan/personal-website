@@ -10,7 +10,7 @@ import { InformationalBasicComponent } from './components/home/informational/inf
 import { InformationalSkillsComponent } from './components/home/informational/informational-skills/informational-skills.component';
 import { SkillComponent } from './components/home/informational/informational-skills/skill/skill.component';
 import { FooterComponent } from './components/footer/footer.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ColorThemeToggleComponent } from './components/addons/color-theme-toggle/color-theme-toggle.component';
