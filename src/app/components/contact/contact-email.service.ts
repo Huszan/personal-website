@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IEmailForm} from "../../interfaces/IEmailForm";
-
-const postURL = 'https://personal-website-backend-production.up.railway.app/post';
+import {API_ROUTE, ApiConnectionService} from "../../services/api-connection.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +9,12 @@ const postURL = 'https://personal-website-backend-production.up.railway.app/post
 export class ContactEmailService {
 
   sendEmail(emailForm: IEmailForm) {
-    return this.http.post(postURL, emailForm);
+    let url = this.apiConnection.getRouteUrl(API_ROUTE.EMAIL.SEND);
+    return this.http.post(url, emailForm);
   }
 
   constructor(
     private http: HttpClient,
+    private apiConnection: ApiConnectionService,
   ) { }
 }

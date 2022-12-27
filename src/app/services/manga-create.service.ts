@@ -2,15 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IMangaForm} from "../interfaces/IMangaForm";
 import {Router} from "@angular/router";
-
-const SERVER_HTTP = {
-  Development: 'http://localhost:3000/',
-  Main: 'https://personal-website-backend-production.up.railway.app/',
-}
-const PATH = {
-  test: 'testMangaForm',
-  send: 'createManga',
-}
+import {API_ROUTE, ApiConnectionService} from "./api-connection.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +13,7 @@ export class MangaCreateService {
     test: false,
     submit: false,
   }
-  currHttp = SERVER_HTTP.Main;
   private lastApproved: IMangaForm | undefined;
-  private readonly testURL = `${this.currHttp}${PATH.test}`;
-  private readonly sendURL = `${this.currHttp}${PATH.send}`;
 
   isApproved = () => {
     return this.lastApproved != undefined;
@@ -36,6 +25,7 @@ export class MangaCreateService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private apiConnection: ApiConnectionService,
   ) { }
 
   parseForm(form: IMangaForm) {
@@ -48,7 +38,8 @@ export class MangaCreateService {
     if(this.isLoading()) throw new Error("Service is currently working. Please wait.");
     this.loading.test = true;
     let formClone = this.parseForm(form);
-    this.http.post(this.testURL, formClone)
+    let url = this.apiConnection.getRouteUrl(API_ROUTE.MANGA.TEST_FORM);
+    this.http.post(url, formClone)
       .subscribe(res => {
         this.loading.test = false;
         if(res === true) {
@@ -67,7 +58,8 @@ export class MangaCreateService {
     if(this.isLoading()) throw new Error("Service is currently working. Please wait.");
     if(!this.lastApproved) throw new Error("There is no approved manga.");
     this.loading.submit = true;
-    this.http.post(this.sendURL, this.lastApproved)
+    let url = this.apiConnection.getRouteUrl(API_ROUTE.MANGA.SEND_NEW);
+    this.http.post(url, this.lastApproved)
       .subscribe(res => {
         if(res) {
           alert(`Successfully added manga to collection! ` +

@@ -3,15 +3,7 @@ import {FakeArray} from "../../../../utils/fakeArray";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
-
-const SERVER_HTTP = {
-  Development: 'http://localhost:3000/',
-  Main: 'https://personal-website-backend-production.up.railway.app/',
-}
-const ROUTE = {
-  GetMangaList: 'getMangaList',
-  GetPages: 'getMangaPages',
-}
+import {API_ROUTE, ApiConnectionService} from "../../../services/api-connection.service";
 
 interface MangaForm {
   id: number,
@@ -32,7 +24,6 @@ export class MangaReadComponent implements OnInit {
 
   fakeArray = FakeArray;
 
-  currHttp = SERVER_HTTP.Main;
   mangas = new Map<number, MangaForm>();
   currManga: MangaForm | undefined;
   chapters: number[] = [];
@@ -44,6 +35,7 @@ export class MangaReadComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private sanitizer: DomSanitizer,
+    private apiConnection: ApiConnectionService,
   ) {}
   sanitizeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
@@ -77,7 +69,8 @@ export class MangaReadComponent implements OnInit {
 
   getMangaList() {
     this.isLoading = true;
-    this.http.get(`${this.currHttp}${ROUTE.GetMangaList}`).subscribe(
+    let url = this.apiConnection.getRouteUrl(API_ROUTE.MANGA.GET_MANGAS);
+    this.http.get(url).subscribe(
       async res => {
         let p = res as MangaForm[];
         p.forEach(el => {
@@ -91,7 +84,8 @@ export class MangaReadComponent implements OnInit {
   async collectPages(manga: MangaForm, chapter: number) {
     this.backToTop();
     this.isLoading = true;
-    this.http.post(`${this.currHttp}${ROUTE.GetPages}`, {idHtmlLocate: manga.idHtmlLocate, chapter: chapter}).subscribe(
+    let url = this.apiConnection.getRouteUrl(API_ROUTE.MANGA.GET_PAGES);
+    this.http.post(url, {idHtmlLocate: manga.idHtmlLocate, chapter: chapter}).subscribe(
       res => {
         let p = res as [];
         if(p.length > 0) {
