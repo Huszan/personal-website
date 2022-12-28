@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MangaCreateService} from "../../../services/manga-create.service";
+import {MangaCreateService} from "./manga-create.service";
 import {IMangaForm} from "../../../interfaces/IMangaForm";
 import {MangaFormService} from "../../../services/form/manga-form.service";
 

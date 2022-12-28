@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContactComponent } from './contact.component';
+import {ContactEmailService} from "./contact-email.service";
+import {FormsModule} from "@angular/forms";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -8,7 +10,13 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContactComponent ]
+      declarations: [ ContactComponent ],
+      imports: [FormsModule],
+      providers: [{
+        provide: ContactEmailService,
+        useValue: jasmine.createSpyObj([''])
+      }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 

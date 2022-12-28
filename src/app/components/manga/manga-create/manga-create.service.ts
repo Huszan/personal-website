@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {IMangaForm} from "../interfaces/IMangaForm";
+import {IMangaForm} from "../../../interfaces/IMangaForm";
 import {Router} from "@angular/router";
-import {API_ROUTE, ApiConnectionService} from "./api-connection.service";
+import {API_ROUTE, ApiConnectionService} from "../../../services/api-connection.service";
 
 @Injectable({
   providedIn: 'root'

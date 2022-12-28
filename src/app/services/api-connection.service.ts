@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 
-const API_DOMAIN = {
+export const API_DOMAIN = {
   Production: 'https://personal-website-backend-production.up.railway.app/',
   Development: 'http://localhost:3000/'
 }
@@ -24,6 +24,9 @@ export class ApiConnectionService {
 
   private readonly domain;
 
+  getDomain() {
+    return this.domain;
+  }
   getRouteUrl(route: string) {
     return this.domain + route;
   }

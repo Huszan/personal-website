@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {PersonalInfoService} from "../../../../services/personal/personal-info.service";
+import {PersonalInfoService} from "../../../../services/personal-info.service";
 
 
 

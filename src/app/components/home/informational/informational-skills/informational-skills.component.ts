@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PersonalInfoService} from "../../../../services/personal/personal-info.service";
+import {PersonalInfoService} from "../../../../services/personal-info.service";
 
 @Component({
   selector: 'app-informational-skills',

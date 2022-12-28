@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InformationalEducationComponent } from './informational-education.component';
+import {EducationComponent} from "./education/education.component";
 
 describe('InformationalEducationComponent', () => {
   let component: InformationalEducationComponent;
@@ -8,7 +9,7 @@ describe('InformationalEducationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InformationalEducationComponent ]
+      declarations: [ InformationalEducationComponent, EducationComponent ]
     })
     .compileComponents();
 

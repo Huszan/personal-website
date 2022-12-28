@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 import { MangaReadComponent } from './manga-read.component';
+import {LoadingCircleComponent} from "../../addons/loading-circle/loading-circle.component";
 
 describe('MangareadComponent', () => {
   let component: MangaReadComponent;
@@ -8,7 +10,8 @@ describe('MangareadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MangaReadComponent ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ MangaReadComponent, LoadingCircleComponent ]
     })
     .compileComponents();
 

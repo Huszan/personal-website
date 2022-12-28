@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {FormsModule} from "@angular/forms";
 import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 import { ColorThemeToggleComponent } from './components/addons/color-theme-toggle/color-theme-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
 import { MangaReadComponent } from './components/manga/manga-read/manga-read.component';
@@ -50,6 +51,7 @@ import { MangaComponent } from './components/manga/manga.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HttpClientTestingModule,
     RecaptchaModule,
     InformationalEducationModule,
   ],
