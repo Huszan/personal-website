@@ -39,19 +39,22 @@ export class MangaCreateService {
     this.loading.test = true;
     let formClone = this.parseForm(form);
     let url = this.apiConnection.getRouteUrl(API_ROUTE.MANGA.TEST_FORM);
-    this.http.post(url, formClone)
-      .subscribe(res => {
-        this.loading.test = false;
-        if(res === true) {
-          alert(`Successfully received pages for all chapters. ` +
-            `You can now click Submit button to upload it!`);
-          this.lastApproved = formClone;
+    this.http.post(url, { manga: formClone })
+      .subscribe({
+        next: (res) => {
+          if(res === true) {
+            alert(`Successfully received pages for all chapters. ` +
+              `You can now click Submit button to upload it!`);
+            this.lastApproved = formClone;
+          }
+          else alert(`Unable to get all of manga chapters. Failed on -> ${res}`);
+        },
+        error: (err) => {
+          alert(err.message);
+        },
+        complete: () => {
+          this.loading.test = false;
         }
-        else alert(`Unable to get all of manga chapters. Failed on -> ${res}`);
-      },
-      err => {
-        alert(err.message);
-        this.loading.test = false;
       })
   }
   sendApprovedManga() {
@@ -59,23 +62,23 @@ export class MangaCreateService {
     if(!this.lastApproved) throw new Error("There is no approved manga.");
     this.loading.submit = true;
     let url = this.apiConnection.getRouteUrl(API_ROUTE.MANGA.SEND_NEW);
-    this.http.post(url, this.lastApproved)
-      .subscribe(res => {
-        if(res) {
-          alert(`Successfully added manga to collection! ` +
-            `Thank You for input :)`);
+    this.http.post(url, { manga: this.lastApproved })
+      .subscribe({
+        next: (res) => {
+          if(!res) { alert(`Something went wrong. Please try again.`); }
+          else {
+            alert(`Successfully added manga to collection! ` +
+              `Thank You for input :)`);
+            this.router.navigate(['manga']);
+          }
+        },
+        error: (err) => {
+          alert(err.message);
+        },
+        complete: () => {
           this.loading.submit = false;
-          this.router.navigate(['manga-read']);
-        }
-        else {
-          alert(`Something went wrong. Please try again.`);
-          this.loading.submit = false;
-        }
-      },
-        error => {
-          alert(error.message);
-          this.loading.submit = false;
-        })
+        },
+      })
   }
 
 }

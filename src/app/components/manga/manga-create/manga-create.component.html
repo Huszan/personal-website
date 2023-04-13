@@ -54,7 +54,7 @@ Place "!!!" in place of chapter number'
         <re-captcha (resolved)="resolveCaptcha($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
       </div>
 
-      <button class="form-submit" (click)="onSubmitTest()"
+      <button class="form-submit" type="button" (click)="onSubmitTest()"
               [disabled] = "name.invalid || pic.invalid || startingChapter.invalid || chapterCount.invalid
               || positions.invalid || lookedType.invalid || lookedAttr.invalid || urls.invalid || !captcha">
         <a>Test</a>

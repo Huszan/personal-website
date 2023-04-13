@@ -76,7 +76,6 @@ export class MangaReadComponent implements OnInit {
         p.forEach(el => {
           this.mangas.set(el.id, el);
         })
-        console.log(`Loaded ${this.mangas.size} mangas`);
         this.isLoading = false;
       }
     )
@@ -89,7 +88,6 @@ export class MangaReadComponent implements OnInit {
       res => {
         let p = res as [];
         if(p.length > 0) {
-          console.log(`${p.length} pages collected successfully!`);
           this.currChapter = chapter;
           localStorage.setItem('last-manga', String(manga.id));
           localStorage.setItem('last-chapter', String(chapter));
