@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PersonalInfoService} from "../../../../services/personal-info.service";
+import {prefabAnimations} from "../../../../directives/init-animation.directive";
 
 @Component({
   selector: 'app-informational-education',
@@ -13,6 +14,7 @@ export class InformationalEducationComponent implements OnInit {
   ) { }
 
   educations = this.personalInfoService.educations;
+  animations = prefabAnimations;
 
   ngOnInit(): void {
   }
