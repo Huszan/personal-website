@@ -1,60 +1,62 @@
 
-<div class="form-wrapper">
+<div id="centerScreenWrapper"  [ngStyle]="{'height.px': parentHeight}">
 
-  <div class="flex justify-center items-center flex-wrap space-x-2">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail h-[2rem] w-[2rem]"
-         width="24"
-         height="24"
-         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-      <polyline points="3 7 12 13 21 7"></polyline>
-    </svg>
-    <h2 class="flex flex-wrap">
-      Send me mail!
-    </h2>
-  </div>
-
-
-  <form (ngSubmit)="onSubmit()" id="form" name="form" class="flex flex-col space-y-2">
-
-    <div class="form-input-box">
-      <label class="form-label md:w-[6rem] required" for="email">
-        E-mail
-      </label>
-      <input id="email" type="email" required placeholder="Insert your email address.."
-             [(ngModel)]="emailForm.form.email" name="email" #email="ngModel" email
-             class="form-input">
+  <div class="form-wrapper">
+    <div class="flex justify-center items-center flex-wrap space-x-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail h-[3rem] w-[3rem]"
+           width="24"
+           height="24"
+           viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+        <polyline points="3 7 12 13 21 7"></polyline>
+      </svg>
+      <h2 class="flex flex-wrap">
+        Send me mail!
+      </h2>
     </div>
 
-    <div class="form-input-box">
-      <label class="form-label md:w-[6rem] required" for="name">
-        Name
-      </label>
-      <input id="name" required placeholder="Insert your name.."
-             [(ngModel)]="emailForm.form.name" name="name" #name="ngModel"
-             class="form-input">
-    </div>
 
-    <label class="form-label md:w-[6rem] required" for="message">
-      Message
-    </label>
-    <textarea id="message" placeholder="Write your message here.."
-              [(ngModel)]="emailForm.form.message" name="message" #message="ngModel"
-              class="form-textarea"
-              required>
+    <form (ngSubmit)="onSubmit()" id="form" name="form" class="flex flex-col space-y-2">
+
+      <div class="form-input-box">
+        <label class="form-label md:w-[6rem] required" for="email">
+          E-mail
+        </label>
+        <input id="email" type="email" required placeholder="Insert your email address.."
+               [(ngModel)]="emailForm.form.email" name="email" #email="ngModel" email
+               class="form-input">
+      </div>
+
+      <div class="form-input-box">
+        <label class="form-label md:w-[6rem] required" for="name">
+          Name
+        </label>
+        <input id="name" required placeholder="Insert your name.."
+               [(ngModel)]="emailForm.form.name" name="name" #name="ngModel"
+               class="form-input">
+      </div>
+
+      <label class="form-label md:w-[6rem] required" for="message">
+        Message
+      </label>
+      <textarea id="message" placeholder="Write your message here.."
+                [(ngModel)]="emailForm.form.message" name="message" #message="ngModel"
+                class="form-textarea resize-none"
+                required>
     </textarea>
 
-    <div class="pt-2">
-      <re-captcha class="scale-125" (resolved)="resolveCaptcha($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
-    </div>
+      <div class="pt-2">
+        <re-captcha class="scale-125" (resolved)="resolveCaptcha($event)" siteKey="6Lev1UMiAAAAAHeyLdZBRYESdau5A4390p9Mwtry"></re-captcha>
+      </div>
 
-    <button class="form-submit disabled:saturate-0" type="submit"
-            [disabled]="!email.valid || !name.valid || !message.valid || !captcha || this.isLoading()">
-      <div *ngIf="this.isLoading()" class="h-full"><app-loading-circle></app-loading-circle></div>
-      <p>Send ></p>
-    </button>
+      <button class="form-submit disabled:saturate-0" type="submit"
+              [disabled]="!email.valid || !name.valid || !message.valid || !captcha || this.isLoading()">
+        <div *ngIf="this.isLoading()" class="h-full"><app-loading-circle></app-loading-circle></div>
+        <p>Send ></p>
+      </button>
 
-  </form>
+    </form>
+  </div>
 
 </div>

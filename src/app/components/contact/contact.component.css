@@ -2,3 +2,9 @@
 input, textarea {
   color: black;
 }
+
+#centerScreenWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
