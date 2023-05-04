@@ -40,31 +40,31 @@ export class PersonalInfoService {
   readonly devSkills: ISkill[] = [
     {
       title: 'html5',
-      ico: 'assets/pictures/skills/html.png'
+      ico: 'assets/pictures/skills/html.svg'
     },
     {
       title: 'css3',
-      ico: 'assets/pictures/skills/css.png'
+      ico: 'assets/pictures/skills/css.svg'
     },
     {
       title: 'javascript',
-      ico: 'assets/pictures/skills/js.png'
+      ico: 'assets/pictures/skills/js.svg'
     },
     {
       title: 'typescript',
-      ico: 'assets/pictures/skills/ts.png'
+      ico: 'assets/pictures/skills/ts.svg'
     },
     {
       title: 'sass',
-      ico: 'assets/pictures/skills/sass.png'
+      ico: 'assets/pictures/skills/sass.svg'
     },
     {
       title: 'tailwind',
-      ico: 'assets/pictures/skills/tailwind.png'
+      ico: 'assets/pictures/skills/tailwind.svg'
     },
     {
       title: 'angular',
-      ico: 'assets/pictures/skills/angular.png'
+      ico: 'assets/pictures/skills/angular.svg'
     },
     {
       title: 'material',
@@ -72,15 +72,19 @@ export class PersonalInfoService {
     },
     {
       title: 'primeng',
-      ico: 'assets/pictures/skills/primeng.svg'
+      ico: 'assets/pictures/skills/prime.svg'
     },
     {
       title: 'mysql',
-      ico: 'assets/pictures/skills/sqlite.png'
+      ico: 'assets/pictures/skills/mysql.svg'
+    },
+    {
+      title: 'sqlite',
+      ico: 'assets/pictures/skills/sqlite.svg'
     },
     {
       title: 'git',
-      ico: 'assets/pictures/skills/git.png'
+      ico: 'assets/pictures/skills/git.svg'
     },
   ]
 
