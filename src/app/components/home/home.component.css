@@ -1,0 +1,16 @@
+.home-wrapper {
+  @apply grid grid-cols-1 dark:bg-gray-600;
+}
+
+section {
+  min-height: calc(100vh - 32px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 450px) {
+  section {
+    min-height: calc(100vh - 64px);
+  }
+}
+

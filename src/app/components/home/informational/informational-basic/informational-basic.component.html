@@ -1,39 +1,32 @@
-<div class="info-basic-content" #intersection>
+<div class="info-basic-content" #intersectionBasicInfo>
 
-  <div class="pic-wrapper">
-    <img class="personal-pic" src="assets/pictures/myface.jpg"
-         appInitAnimation [animation]="animations.slideIn" [delay]="0" [intersection]="intersection"
-    >
-    <h2
-      appInitAnimation [animation]="animations.slideIn" [delay]="80" [intersection]="intersection"
-    ><b>{{fullName}}</b></h2>
-    <h3
-      appInitAnimation [animation]="animations.slideIn" [delay]="160" [intersection]="intersection"
-    >{{title}}</h3>
+  <div class="background-wrapper">
+    <img class="background" src="assets/pictures/myfullface.png">
+    <div class="overlay"></div>
   </div>
 
   <div class="desc-wrapper"
-       appInitAnimation [animation]="animations.fadeIn" [delay]="240" [intersection]="intersection"
+      appInitAnimation [animation]="animations.scaleUp" [delay]="0" [duration]="500" [intersection]="intersectionBasicInfo"
   >
     <p class="desc-paragraph"
-       appInitAnimation [animation]="animations.slideIn" [delay]="320" [intersection]="intersection"
+        appInitAnimation [animation]="animations.slideIn" [delay]="700" [intersection]="intersectionBasicInfo"
     >
       <b>Hi! Let me introduce myself!</b>
     </p>
     <br>
     <p class="desc-paragraph"
-       appInitAnimation [animation]="animations.slideIn" [delay]="400" [intersection]="intersection"
+        appInitAnimation [animation]="animations.slideIn" [delay]="780" [intersection]="intersectionBasicInfo"
     >
-      I am highly motivated and quite experienced front-end developer. I am fully capable of writing well designed,
-      testable, efficient code by using best software development practices, know how to integrate data from various back-end services and databases and
-      create website layout/user interfaces by using standard HTML/CSS practices.
+      My name is {{ personalInfoService.fullName }}. I am a {{ personalInfoService.age }} year old professional {{ personalInfoService.title }}.
+      I am highly passionate about my job because I love designing and creating websites and games and also solving problems
+      linked with this process.
     </p>
     <br>
     <p class="desc-paragraph"
-       appInitAnimation [animation]="animations.slideIn" [delay]="480" [intersection]="intersection"
+        appInitAnimation [animation]="animations.slideIn" [delay]="860" [intersection]="intersectionBasicInfo"
     >
-      Graduated from <em>{{education.universityName}} in {{education.where}}</em> with {{education.degree}} degree
-      in {{education.in}}.
+      In my free time I like to go out with my friends, work out, read various books/comics, play video games,
+      or work on one of my current side projects.
     </p>
   </div>
 

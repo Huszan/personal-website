@@ -12,11 +12,16 @@ const FadeInAnimation = [
   { opacity: 0 },
   { opacity: 100 },
 ]
+const ScaleUpAnimation = [
+  { scale: 0, transform: 'translateX(-100%) translateY(100%)' },
+  { scale: 1, transform: 'translateX(0) translateY(0)' },
+]
 
 export const prefabAnimations = {
   fadeIn: FadeInAnimation,
   slideIn: SlideInAnimation,
   slideFromRight: SlideFromRightAnimation,
+  scaleUp: ScaleUpAnimation,
 }
 
 @Directive({

@@ -1,24 +1,55 @@
 .info-basic-content {
-  @apply flex flex-col space-y-10 md:space-x-10 md:space-y-0 md:flex-row;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
 
-.personal-pic {
-  @apply rounded-full min-w-[18rem] self-center;
+.background-wrapper {
+  position: absolute;
+  display: inline;
+  height: 100%;
 }
-.pic-wrapper {
-  @apply flex flex-col space-y-3 text-center;
+
+.background {
+  height: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  @apply bg-gradient-to-l from-white dark:from-gray-600;
 }
 
 .desc-wrapper {
-  @apply self-center max-w-xl p-8 bg-amber-50 dark:bg-gray-500 rounded-[2rem];
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+  max-width: calc(100vw - 450px);
+  max-height: calc(100% - 40px);
+  border-radius: 2rem 2rem 2rem 0;
+  overflow: auto;
+  @apply self-center text-2xl p-8 bg-amber-50 dark:bg-gray-500;
 }
 .desc-wrapper::before {
   content: '';
-  @apply absolute rotate-45 hidden md:block
+  @apply absolute rotate-45 md:block
   -translate-x-[3rem] translate-y-[4rem]
   w-[2rem] h-[2rem]
   bg-amber-50 dark:bg-gray-500;
 }
-.desc-paragraph {
-  @apply indent-8 leading-6 text-base;
+
+@media screen and (max-width: 1000px) {
+  .background {
+    object-fit: cover;
+  }
+  .desc-wrapper {
+    max-width: 100%;
+    height: 30vh;
+    border-radius: 5px;
+  }
 }

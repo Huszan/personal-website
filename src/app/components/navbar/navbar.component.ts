@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ExternalLinksService} from "../../services/external-links.service";
 import {routes} from "../../app-routing.module";
 import {Router} from "@angular/router";
 import {IExternalLink} from "../../interfaces/IExternalLink";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +11,7 @@ import {IExternalLink} from "../../interfaces/IExternalLink";
   styleUrls: ['./navbar.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class NavbarComponent implements OnInit {
-
+export class NavbarComponent {
   readonly availableRoutes = routes;
   readonly externalLinks: IExternalLink[];
 
@@ -28,9 +28,6 @@ export class NavbarComponent implements OnInit {
     private router: Router,
   ) {
     this.externalLinks = this.externalLinksService.getLinks();
-  }
-
-  ngOnInit(): void {
   }
 
 }

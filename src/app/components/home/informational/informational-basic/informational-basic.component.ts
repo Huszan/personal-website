@@ -11,10 +11,9 @@ import {prefabAnimations} from "../../../../directives/init-animation.directive"
 export class InformationalBasicComponent implements OnInit {
 
   constructor(
-    private personalInfoService: PersonalInfoService,
+    public personalInfoService: PersonalInfoService,
   ) { }
 
-  fullName = this.personalInfoService.fullName;
   title = this.personalInfoService.title;
   education = this.personalInfoService.educations[0];
 
