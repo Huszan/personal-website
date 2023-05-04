@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 
 const SlideInAnimation = [
-  { opacity: 0, transform: 'translateY(50px)' },
+  { opacity: 0, transform: 'translateY(25px)' },
   { opacity: 100, transform: 'translateY(0px)' },
 ]
 const SlideFromRightAnimation = [
