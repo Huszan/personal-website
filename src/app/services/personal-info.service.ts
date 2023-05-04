@@ -39,25 +39,48 @@ export class PersonalInfoService {
   ]
   readonly devSkills: ISkill[] = [
     {
-      title: 'Writing clean code',
-      desc: 'Ability to write clean code using programming languages like Java, JavaScript, TypeScript, C# and Kotlin'
+      title: 'html5',
+      ico: 'assets/pictures/skills/html.png'
     },
     {
-      title: 'Frameworks',
-      desc: 'Knowledge and skills in using Angular and React frameworks'
+      title: 'css3',
+      ico: 'assets/pictures/skills/css.png'
     },
     {
-      title: 'Design patterns',
-      desc: 'Understanding and ability to implement commonly used design patterns'
+      title: 'javascript',
+      ico: 'assets/pictures/skills/js.png'
     },
     {
-      title: 'Unit testing'
+      title: 'typescript',
+      ico: 'assets/pictures/skills/ts.png'
     },
     {
-      title: 'SQL'
+      title: 'sass',
+      ico: 'assets/pictures/skills/sass.png'
     },
     {
-      title: 'Git version control system'
+      title: 'tailwind',
+      ico: 'assets/pictures/skills/tailwind.png'
+    },
+    {
+      title: 'angular',
+      ico: 'assets/pictures/skills/angular.png'
+    },
+    {
+      title: 'material',
+      ico: 'assets/pictures/skills/material.svg'
+    },
+    {
+      title: 'primeng',
+      ico: 'assets/pictures/skills/primeng.svg'
+    },
+    {
+      title: 'mysql',
+      ico: 'assets/pictures/skills/sqlite.png'
+    },
+    {
+      title: 'git',
+      ico: 'assets/pictures/skills/git.png'
     },
   ]
 

@@ -49,7 +49,7 @@ export class InitAnimationDirective implements OnInit {
   ngOnInit() {
     if (InitAnimationDirective.played) return;
     this.elementRef.nativeElement.style.opacity = 0;
-    this._observer = new IntersectionObserver(this.callback, { threshold: 0.75 });
+    this._observer = new IntersectionObserver(this.callback, { threshold: 0.25 });
     this._observer.observe(this._currElement);
   }
 

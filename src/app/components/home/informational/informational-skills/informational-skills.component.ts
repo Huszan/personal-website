@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PersonalInfoService} from "../../../../services/personal-info.service";
+import {prefabAnimations} from "../../../../directives/init-animation.directive";
 
 @Component({
   selector: 'app-informational-skills',
@@ -7,6 +8,8 @@ import {PersonalInfoService} from "../../../../services/personal-info.service";
   styleUrls: ['./informational-skills.component.css']
 })
 export class InformationalSkillsComponent implements OnInit {
+
+  animations = prefabAnimations;
 
   constructor(
     private personalInfoService: PersonalInfoService
