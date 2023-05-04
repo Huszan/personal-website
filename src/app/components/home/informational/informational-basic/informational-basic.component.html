@@ -1,23 +1,37 @@
-<div class="info-basic-content">
+<div class="info-basic-content" #intersection>
 
   <div class="pic-wrapper">
-    <img class="personal-pic" src="assets/pictures/myface.jpg">
-    <h2><b>{{fullName}}</b></h2>
-    <h3>{{title}}</h3>
+    <img class="personal-pic" src="assets/pictures/myface.jpg"
+         appInitAnimation [animation]="animations.slideIn" [delay]="0" [intersection]="intersection"
+    >
+    <h2
+      appInitAnimation [animation]="animations.slideIn" [delay]="80" [intersection]="intersection"
+    ><b>{{fullName}}</b></h2>
+    <h3
+      appInitAnimation [animation]="animations.slideIn" [delay]="160" [intersection]="intersection"
+    >{{title}}</h3>
   </div>
 
-  <div class="desc-wrapper">
-    <p class="desc-paragraph">
+  <div class="desc-wrapper"
+       appInitAnimation [animation]="animations.fadeIn" [delay]="240" [intersection]="intersection"
+  >
+    <p class="desc-paragraph"
+       appInitAnimation [animation]="animations.slideIn" [delay]="320" [intersection]="intersection"
+    >
       <b>Hi! Let me introduce myself!</b>
     </p>
     <br>
-    <p class="desc-paragraph">
+    <p class="desc-paragraph"
+       appInitAnimation [animation]="animations.slideIn" [delay]="400" [intersection]="intersection"
+    >
       I am highly motivated and quite experienced front-end developer. I am fully capable of writing well designed,
       testable, efficient code by using best software development practices, know how to integrate data from various back-end services and databases and
       create website layout/user interfaces by using standard HTML/CSS practices.
     </p>
     <br>
-    <p class="desc-paragraph">
+    <p class="desc-paragraph"
+       appInitAnimation [animation]="animations.slideIn" [delay]="480" [intersection]="intersection"
+    >
       Graduated from <em>{{education.universityName}} in {{education.where}}</em> with {{education.degree}} degree
       in {{education.in}}.
     </p>

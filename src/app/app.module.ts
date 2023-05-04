@@ -25,6 +25,7 @@ import {
 } from "./components/home/informational/informational-education/informational-education.module";
 import { MangaCreateComponent } from './components/manga/manga-create/manga-create.component';
 import { MangaComponent } from './components/manga/manga.component';
+import { InitAnimationDirective } from './directives/init-animation.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { MangaComponent } from './components/manga/manga.component';
     InformationalEducationComponent,
     MangaCreateComponent,
     MangaComponent,
+    InitAnimationDirective,
   ],
   imports: [
     BrowserModule,
