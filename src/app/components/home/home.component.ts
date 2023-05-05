@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {prefabAnimations} from "../../directives/init-animation.directive";
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  animations = prefabAnimations;
 
   constructor() { }
 

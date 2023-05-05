@@ -21,6 +21,8 @@ import { InitAnimationDirective } from './directives/init-animation.directive';
 import {
   EducationComponent
 } from "./components/home/informational/informational-education/education/education.component";
+import { CarouselComponent } from './components/addons/carousel/carousel.component';
+import { ProjectsCarouselComponent } from './components/home/projects-carousel/projects-carousel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,8 @@ import {
     InformationalEducationComponent,
     InitAnimationDirective,
     EducationComponent,
+    CarouselComponent,
+    ProjectsCarouselComponent,
   ],
   imports: [
     BrowserModule,
