@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {EmailFormService} from "../../services/form/email-form.service";
 import {ContactEmailService} from "../../services/http/contact-email.service";
 import {StateManagementService} from "../../services/state-management/state-management.service";
@@ -8,10 +8,8 @@ import {StateManagementService} from "../../services/state-management/state-mana
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit, AfterViewInit {
+export class ContactComponent {
 
-  @ViewChild('centerScreenWrapper') contactFormRef!: ElementRef;
-  parentHeight = 729;
   captcha: string = '';
 
   constructor(
@@ -20,12 +18,6 @@ export class ContactComponent implements OnInit, AfterViewInit {
     private state: StateManagementService,
   ) { }
 
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit() {
-    this.parentHeight = this.contactFormRef.nativeElement.parentElement.parentElement.offsetHeight;
-  }
 
   onSubmit() {
     this.sendEmail();

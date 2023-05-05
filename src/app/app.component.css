@@ -3,6 +3,7 @@
 }
 
 .main-content {
+  position: relative;
   min-height: calc(100vh - 208px);
   @apply bg-white dark:bg-gray-600 text-slate-600 dark:text-white;
 }
