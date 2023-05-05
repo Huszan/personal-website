@@ -1,8 +1,7 @@
 
 <div class="form-wrapper">
-
   <div class="flex justify-center items-center flex-wrap space-x-2">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail h-[2rem] w-[2rem]"
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail h-[3rem] w-[3rem]"
          width="24"
          height="24"
          viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -41,7 +40,7 @@
     </label>
     <textarea id="message" placeholder="Write your message here.."
               [(ngModel)]="emailForm.form.message" name="message" #message="ngModel"
-              class="form-textarea"
+              class="form-textarea resize-none"
               required>
     </textarea>
 
@@ -56,5 +55,4 @@
     </button>
 
   </form>
-
 </div>

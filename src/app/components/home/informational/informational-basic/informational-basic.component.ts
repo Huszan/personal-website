@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {PersonalInfoService} from "../../../../services/personal-info.service";
+import {PersonalInfoService} from "../../../../services/personal-info/personal-info.service";
+import {prefabAnimations} from "../../../../directives/init-animation.directive";
 
 @Component({
   selector: 'app-informational-basic',
@@ -10,12 +11,13 @@ import {PersonalInfoService} from "../../../../services/personal-info.service";
 export class InformationalBasicComponent implements OnInit {
 
   constructor(
-    private personalInfoService: PersonalInfoService,
+    public personalInfoService: PersonalInfoService,
   ) { }
 
-  fullName = this.personalInfoService.fullName;
   title = this.personalInfoService.title;
   education = this.personalInfoService.educations[0];
+
+  animations = prefabAnimations;
 
   ngOnInit(): void {
   }
