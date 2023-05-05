@@ -17,19 +17,19 @@ export class ProjectsCarouselComponent implements OnInit {
         'User is also able to fill scrapping form to ' +
         'add new manga to website backend database at realtime.',
       link: 'https://huszan.github.io/manga-dot/',
-      pictureUrl: 'assets/pictures/projects/manga-dot-capture.PNG'
+      pictureUrl: 'assets/pictures/projects/manga-dot-capture-min.PNG'
     },
     {
       title: 'Parallax effect',
       description: 'On this site you can play around with cool parallax effect and listen to music with custom player',
       link: 'https://huszan.github.io/moving-league-bg/',
-      pictureUrl: 'assets/pictures/projects/parallax-capture.PNG'
+      pictureUrl: 'assets/pictures/projects/parallax-capture-min.PNG'
     },
     {
       title: 'Particle effect',
       description: 'On this site I have created awesome custom particle effect system',
       link: 'https://huszan.github.io/particle-effect/',
-      pictureUrl: 'assets/pictures/projects/particle-capture.PNG'
+      pictureUrl: 'assets/pictures/projects/particle-capture-min.PNG'
     },
     {
       description: 'For more visit my github profile!',
