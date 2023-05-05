@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {EmailFormService} from "../../services/form/email-form.service";
-import {ContactEmailService} from "./contact-email.service";
-import {StateManagementService} from "../../services/state-management.service";
+import {ContactEmailService} from "../../services/http/contact-email.service";
+import {StateManagementService} from "../../services/state-management/state-management.service";
 
 @Component({
   selector: 'app-contact',

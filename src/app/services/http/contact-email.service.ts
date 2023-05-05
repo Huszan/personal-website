@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IEmailForm} from "../../interfaces/IEmailForm";
-import {API_ROUTE, ApiConnectionService} from "../../services/api-connection.service";
+import {API_ROUTE, ApiConnectionService} from "./api-connection.service";
 
 @Injectable({
   providedIn: 'root'

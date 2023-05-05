@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import {API_DOMAIN, ApiConnectionService} from './api-connection.service';
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 
 describe('ApiConnectionService', () => {
   let service: ApiConnectionService;

@@ -15,17 +15,12 @@ import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ColorThemeToggleComponent } from './components/addons/color-theme-toggle/color-theme-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
-import { MangaReadComponent } from './components/manga/manga-read/manga-read.component';
 import {RecaptchaModule} from "ng-recaptcha";
-import { ArrowComponent } from './components/addons/buttons/arrow/arrow.component';
-import { HouseComponent } from './components/addons/buttons/house/house.component';
 import { InformationalEducationComponent } from './components/home/informational/informational-education/informational-education.component';
-import {
-  InformationalEducationModule
-} from "./components/home/informational/informational-education/informational-education.module";
-import { MangaCreateComponent } from './components/manga/manga-create/manga-create.component';
-import { MangaComponent } from './components/manga/manga.component';
 import { InitAnimationDirective } from './directives/init-animation.directive';
+import {
+  EducationComponent
+} from "./components/home/informational/informational-education/education/education.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,13 +34,9 @@ import { InitAnimationDirective } from './directives/init-animation.directive';
     ClockComponent,
     ColorThemeToggleComponent,
     LoadingCircleComponent,
-    MangaReadComponent,
-    ArrowComponent,
-    HouseComponent,
     InformationalEducationComponent,
-    MangaCreateComponent,
-    MangaComponent,
     InitAnimationDirective,
+    EducationComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +44,6 @@ import { InitAnimationDirective } from './directives/init-animation.directive';
     FormsModule,
     HttpClientModule,
     RecaptchaModule,
-    InformationalEducationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

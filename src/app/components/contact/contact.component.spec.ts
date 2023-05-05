@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ContactComponent } from './contact.component';
-import {ContactEmailService} from "./contact-email.service";
+import {ContactEmailService} from "../../services/http/contact-email.service";
 import {FormsModule} from "@angular/forms";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 

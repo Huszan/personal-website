@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {IExternalLink} from "../interfaces/IExternalLink";
+import {IExternalLink} from "../../interfaces/IExternalLink";
 
 @Injectable({
   providedIn: 'root'

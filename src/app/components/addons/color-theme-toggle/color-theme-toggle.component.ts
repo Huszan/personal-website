@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {ColorThemeService, Theme} from "../../../services/color-theme.service";
+import {ColorThemeService, Theme} from "../../../services/color-theme/color-theme.service";
 
 const darkImgSrc = "assets/moon.svg";
 const lightImgSrc = "assets/brightness-2.svg";

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {TimeConvert} from "../../utils/timeConversion";
-import {ISkill} from "../interfaces/ISkill";
-import {IEducation} from "../interfaces/IEducation";
+import {TimeConvert} from "../../../utils/timeConversion";
+import {ISkill} from "../../interfaces/ISkill";
+import {IEducation} from "../../interfaces/IEducation";
 
 @Injectable({
   providedIn: 'root'

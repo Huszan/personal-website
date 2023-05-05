@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {ExternalLinksService} from "../../services/external-links.service";
+import {ExternalLinksService} from "../../services/external-links/external-links.service";
 import {routes} from "../../app-routing.module";
 import {Router} from "@angular/router";
 import {IExternalLink} from "../../interfaces/IExternalLink";
