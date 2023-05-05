@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ColorThemeService, Theme} from "../../../services/color-theme.service";
 
 const darkImgSrc = "assets/moon.svg";
@@ -10,24 +10,21 @@ const lightImgSrc = "assets/brightness-2.svg";
   styleUrls: ['./color-theme-toggle.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ColorThemeToggleComponent implements OnInit {
+export class ColorThemeToggleComponent implements AfterViewInit {
+
+  @ViewChild('themeSliderHandle') sliderHandleRef!: ElementRef;
 
   constructor(
     private colorThemeService: ColorThemeService,
   ) { }
 
-  ngOnInit(): void {
-    this.slider = document.getElementById("slider");
+  ngAfterViewInit(): void {
     this.setCurrentState();
   }
 
-  private slider: HTMLElement | undefined | null;
-
-  private getImageElement(parent: HTMLElement) {
-    return parent.getElementsByTagName('img')[0];
-  }
   setImage(src: string) {
-    this.getImageElement(this.slider!).src = src;
+    let imageRef = this.sliderHandleRef.nativeElement.getElementsByTagName('img')[0];
+    imageRef.src = src;
   }
 
   private getLightThemeTransform(offset = 0) {
@@ -43,20 +40,23 @@ export class ColorThemeToggleComponent implements OnInit {
   }
 
   private getSliderWidth() {
-    return this.slider!.parentElement!.clientWidth;
+    return this.sliderHandleRef.nativeElement.parentElement.clientWidth;
   }
+
   private getSliderHandleWidth() {
-    return this.slider!.clientWidth;
+    return this.sliderHandleRef.nativeElement.clientWidth;
   }
 
   private setDarkState() {
-    this.slider!.style.transform = `translateX(${this.getDarkThemeTransform()}px)`;
+    this.sliderHandleRef.nativeElement.style.transform = `translateX(${this.getDarkThemeTransform()}px)`;
     this.setImage(darkImgSrc);
   }
+
   private setLightState() {
-    this.slider!.style.transform = `translateX(${this.getLightThemeTransform()}px)`;
+    this.sliderHandleRef.nativeElement.style.transform = `translateX(${this.getLightThemeTransform()}px)`;
     this.setImage(lightImgSrc);
   }
+
   private setCurrentState() {
     switch (this.colorThemeService.getTheme()) {
       case Theme.LIGHT: {
