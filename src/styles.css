@@ -5,13 +5,13 @@
 
 @layer base {
   h1 {
-    @apply text-5xl text-center font-bold;
+    @apply text-8xl text-center font-bold;
   }
   h2 {
-    @apply text-4xl text-center;
+    @apply text-6xl text-center p-14;
   }
   h3 {
-    @apply text-2xl;
+    @apply text-2xl py-5;
   }
   h4 {
     @apply text-xl;
@@ -62,4 +62,30 @@
   .form-submit {
     @apply hover-button h-10 flex flex-row justify-center items-center space-x-2;
   }
+}
+
+.tooltip {
+  color: white;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  bottom: -50%;
+  transform: translateX(-50%) translateY(-100%);
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 500;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
 }

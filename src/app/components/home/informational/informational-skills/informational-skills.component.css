@@ -1,0 +1,17 @@
+
+.informational-skills-wrapper {
+  padding: 15px 15px 45px 15px;
+}
+
+.skill-wrapper {
+  position: relative;
+  @apply h-full w-full;
+}
+
+.skill-wrapper img {
+  @apply h-[75px] md:h-[150px] m-auto;
+}
+
+.skill-wrapper:hover .tooltip {
+  opacity: 100%;
+}

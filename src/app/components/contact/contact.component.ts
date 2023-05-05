@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {EmailFormService} from "../../services/form/email-form.service";
-import {ContactEmailService} from "./contact-email.service";
-import {StateManagementService} from "../../services/state-management.service";
+import {ContactEmailService} from "../../services/http/contact-email.service";
+import {StateManagementService} from "../../services/state-management/state-management.service";
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
   captcha: string = '';
 
@@ -17,6 +17,7 @@ export class ContactComponent implements OnInit {
     private contactEmail: ContactEmailService,
     private state: StateManagementService,
   ) { }
+
 
   onSubmit() {
     this.sendEmail();
@@ -46,9 +47,6 @@ export class ContactComponent implements OnInit {
 
   isLoading() {
     return this.state.isLoading();
-  }
-
-  ngOnInit(): void {
   }
 
 }

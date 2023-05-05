@@ -15,16 +15,14 @@ import { ClockComponent } from './components/addons/clock/clock.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ColorThemeToggleComponent } from './components/addons/color-theme-toggle/color-theme-toggle.component';
 import { LoadingCircleComponent } from './components/addons/loading-circle/loading-circle.component';
-import { MangaReadComponent } from './components/manga/manga-read/manga-read.component';
 import {RecaptchaModule} from "ng-recaptcha";
-import { ArrowComponent } from './components/addons/buttons/arrow/arrow.component';
-import { HouseComponent } from './components/addons/buttons/house/house.component';
 import { InformationalEducationComponent } from './components/home/informational/informational-education/informational-education.component';
+import { InitAnimationDirective } from './directives/init-animation.directive';
 import {
-  InformationalEducationModule
-} from "./components/home/informational/informational-education/informational-education.module";
-import { MangaCreateComponent } from './components/manga/manga-create/manga-create.component';
-import { MangaComponent } from './components/manga/manga.component';
+  EducationComponent
+} from "./components/home/informational/informational-education/education/education.component";
+import { CarouselComponent } from './components/addons/carousel/carousel.component';
+import { ProjectsCarouselComponent } from './components/home/projects-carousel/projects-carousel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,12 +36,11 @@ import { MangaComponent } from './components/manga/manga.component';
     ClockComponent,
     ColorThemeToggleComponent,
     LoadingCircleComponent,
-    MangaReadComponent,
-    ArrowComponent,
-    HouseComponent,
     InformationalEducationComponent,
-    MangaCreateComponent,
-    MangaComponent,
+    InitAnimationDirective,
+    EducationComponent,
+    CarouselComponent,
+    ProjectsCarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +48,6 @@ import { MangaComponent } from './components/manga/manga.component';
     FormsModule,
     HttpClientModule,
     RecaptchaModule,
-    InformationalEducationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

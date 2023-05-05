@@ -1,15 +1,29 @@
 
-<a class="font-bold text-xl">Languages</a>
-<div class="md:grid md:grid-cols-3">
-  <ng-container *ngFor="let skill of getLanguageSkills()">
-    <app-skill [skill]="skill"></app-skill>
-  </ng-container>
-</div>
+<h2
+  appInitAnimation [delay]="0" [animation]="animations.slideIn" [intersection]="langSkillsIntersection"
+>Skills</h2>
+<div class="informational-skills-wrapper" #langSkillsIntersection>
+  <h3>Languages</h3>
+  <div class="md:grid md:grid-cols-3">
+    <ng-container *ngFor="let skill of getLanguageSkills(); let i = index">
+      <app-skill
+        [skill]="skill"
+        appInitAnimation [delay]="i * 80 + 80" [animation]="animations.slideFromRight" [intersection]="langSkillsIntersection"
+      ></app-skill>
+    </ng-container>
+  </div>
 
-<a class="font-bold text-xl">Development skills</a>
-<div class="md:grid md:grid-cols-2">
-  <ng-container *ngFor="let skill of getDevSkills()">
-    <app-skill [skill]="skill"></app-skill>
-  </ng-container>
+  <h3>Development skills</h3>
+  <div class="grid grid-cols-3 gap-x-5 gap-y-14" #devSkillsIntersection>
+    <ng-container *ngFor="let skill of getDevSkills(); let i = index">
+      <div class="skill-wrapper">
+        <img
+          [src]="skill.ico" alt=""
+          appInitAnimation [delay]="i * 80 + 240" [animation]="animations.slideIn" [intersection]="devSkillsIntersection"
+        >
+        <span class="tooltip">{{ skill.title }}</span>
+      </div>
+    </ng-container>
+  </div>
 </div>
 

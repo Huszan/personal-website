@@ -1,19 +1,21 @@
 
 :host {
   @apply block text-center md:text-left rounded-[1rem]
+  bg-white bg-opacity-20
   dark:bg-white dark:bg-opacity-5
   flex flex-col md:flex-row m-4;
 }
 
 .education-icon {
-  @apply max-h-[12rem] max-w-[12rem] aspect-square
+  @apply max-h-[50rem] max-w-[50rem] aspect-square
   rounded-[2rem] p-4 m-auto md:rounded-none md:rounded-l-[1rem] md:p-0 md:m-0;
 }
 
 .education-box-text {
   @apply relative flex flex-col justify-evenly p-2;
 }
-.text-padding {
-  @apply p-2;
+
+:host:hover {
+  @apply bg-opacity-25 dark:bg-opacity-10;
 }
 

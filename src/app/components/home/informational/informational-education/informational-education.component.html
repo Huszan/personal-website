@@ -1,6 +1,19 @@
 
-<div class="grid grid-cols-1" *ngIf="educations">
-  <ng-container *ngFor="let edu of educations!">
-    <app-education [education]="edu"></app-education>
-  </ng-container>
+<div class="informational-education-wrapper">
+  <div class="background"></div>
+  <div class="content">
+    <h2
+      appInitAnimation [animation]="animations.slideIn" [delay]="0"
+    >Education</h2>
+    <div class="grid grid-cols-1" *ngIf="educations">
+      <ng-container *ngFor="let edu of educations!">
+        <app-education
+          [education]="edu"
+          appInitAnimation [animation]="animations.slideFromRight" [delay]="240" [duration]="300"
+        >
+        </app-education>
+      </ng-container>
+    </div>
+  </div>
 </div>
+

@@ -1,0 +1,27 @@
+
+<div class="carousel-wrapper">
+
+  <div class="actions">
+    <button
+      *ngIf="!isFirst" class="prev-button" type="button"
+      (click)="previousElement()"
+    ></button>
+    <button
+      *ngIf="!isLast" class="next-button" type="button"
+      (click)="nextElement()"
+    ></button>
+  </div>
+
+  <span #carousel class="carousel-elements">
+    <ng-container *ngFor="let el of data; let i = index">
+      <span class="element" [ngStyle]="{'background-image': 'url(' + el.pictureUrl + ')'}">
+
+        <span *ngIf="el.title" class="title">{{el.title}}</span>
+        <span *ngIf="el.description"  class="description">{{el.description}}</span>
+        <a *ngIf="el.link" [href]="el.link" class="link">Visit</a>
+
+      </span>
+    </ng-container>
+  </span>
+
+</div>
