@@ -41,7 +41,7 @@
   }
 
   .form-wrapper {
-    @apply flex flex-col max-w-2xl space-y-4 m-auto rounded shadow-inner md:p-4 p-1 bg-amber-50
+    @apply flex flex-col max-w-2xl min-w-[50%] space-y-4 m-auto rounded shadow-inner md:p-4 p-1 bg-amber-50
     dark:bg-white dark:bg-opacity-5 z-10;
   }
   .form-input-box {
