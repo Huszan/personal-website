@@ -1,7 +1,7 @@
 
 <button class="slider" (click)="onClick()">
 
-  <div #themeSliderHandle class="slider-handle">
+  <div #themeSliderHandle class="slider-handle" [ngClass]="{ 'active': active }">
     <img class="icon" src="" alt="">
   </div>
 
