@@ -26,3 +26,8 @@
   @apply h-[28px];
 }
 
+.center-horizontally {
+  display: flex;
+  justify-content: center;
+}
+

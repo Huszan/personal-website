@@ -11,8 +11,9 @@ const lightImgSrc = "assets/brightness-2.svg";
   encapsulation: ViewEncapsulation.None,
 })
 export class ColorThemeToggleComponent implements AfterViewInit {
-
   @ViewChild('themeSliderHandle') sliderHandleRef!: ElementRef;
+
+  active = false;
 
   constructor(
     private colorThemeService: ColorThemeService,
@@ -27,43 +28,30 @@ export class ColorThemeToggleComponent implements AfterViewInit {
     imageRef.src = src;
   }
 
-  private getLightThemeTransform(offset = 0) {
-    return offset;
-  }
-  private getDarkThemeTransform(offset = 0.2) {
-    return this.getSliderWidth() - this.getSliderHandleWidth() + offset;
-  }
-
   onClick() {
     this.colorThemeService.switchTheme();
     this.setCurrentState();
   }
 
-  private getSliderWidth() {
-    return this.sliderHandleRef.nativeElement.parentElement.clientWidth;
-  }
-
-  private getSliderHandleWidth() {
-    return this.sliderHandleRef.nativeElement.clientWidth;
-  }
-
   private setDarkState() {
-    this.sliderHandleRef.nativeElement.style.transform = `translateX(${this.getDarkThemeTransform()}px)`;
+    this.active = true;
     this.setImage(darkImgSrc);
   }
 
   private setLightState() {
-    this.sliderHandleRef.nativeElement.style.transform = `translateX(${this.getLightThemeTransform()}px)`;
+    this.active = false;
     this.setImage(lightImgSrc);
   }
 
   private setCurrentState() {
     switch (this.colorThemeService.getTheme()) {
       case Theme.LIGHT: {
+        this.active = false;
         this.setLightState();
         break;
       }
       case Theme.DARK: {
+        this.active = true;
         this.setDarkState();
         break;
       }
